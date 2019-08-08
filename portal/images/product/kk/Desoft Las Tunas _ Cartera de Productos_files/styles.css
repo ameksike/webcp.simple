@@ -1,0 +1,6 @@
+/* Effective stylesheet produced by snapshot save */
+.product { opacity: 0; list-style-type: none; display: inline-block; padding: 20px; }
+.product a { display: inline-block; transition: all 0.2s ease 0s; }
+.product a:hover { transform: scale(1.3); }
+.product:nth-child(2n) a { transform: translateY(20px); }
+.product:nth-child(2n) a:hover { transform: translateY(20px) scale(1.3); }

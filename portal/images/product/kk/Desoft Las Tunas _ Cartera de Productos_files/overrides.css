@@ -1,0 +1,9 @@
+/* Effective stylesheet produced by snapshot save */
+.navbar-default { background-color: rgb(0, 123, 145); border-color: rgb(0, 123, 145); }
+.navbar-default .brand img { padding: 14px 10px; }
+.navbar-default .brand, .navbar-default .nav > li > a { color: rgb(255, 255, 255); }
+.navbar-default .nav .active > a { background-color: rgb(0, 72, 84) !important; color: rgb(255, 255, 255); }
+.navbar-default .nav a:hover, .navbar-default .nav a:focus { color: rgb(247, 163, 15) !important; }
+.navbar-default .navbar-toggle { border-color: rgb(255, 255, 255); }
+.navbar-default .navbar-toggle span { background-color: rgb(255, 255, 255) !important; }
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus { background-color: rgb(0, 72, 84); }

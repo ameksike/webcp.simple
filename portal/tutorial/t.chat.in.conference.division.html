@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tutoriales</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Slicebox - 3D Image Slider with Fallback" />
+        <meta name="keywords" content="jquery, css3, 3d, webkit, fallback, slider, css3, 3d transforms, slices, rotate, box, automatic" />
+		<meta name="author" content="Pedro Botelho for Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/slicebox.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="wrapper">
+
+				<ul id="sb-slider" class="sb-slider">
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.division/01.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Este tutorial describe como unirme a una sala de chat o conferencia creada para un grupo de trabajo de la empresa labiofam a nivel nacional. </h3>
+							<br/>
+							<h3> El primer paso consiste en conectarnos con nuestra cuenta al servicio de chat de la división y una vez en línea, dar clic izquierdo sobre la opción [Acciones] del menú, luego [Entrar a un grupo de charla], y finalmente dar clic izquierdo sobre [Entrar en un nuevo grupo de charla]    </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.division/02.png" alt="image2"/></a>
+						<div class="sb-description">
+							<h3> En caso de que no estemos seguros del nombre exacto de la sala de chat o si escribimos bien la dirección del servidor, podemos dar clic izquierdo sobre el botón [Navegar salones] para listar todas las salas de chat disponibles en el servidor especificado. Si no hay problemas se debe mostrar una ventana flotante como la que se muestra en pantalla donde se listan las distintas salas de charla activas.   </h3>
+							<h3> Seleccionamos del listado la que nos interesa que en este caso sería [intranet] y le damos entrar.  </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.division/03.png" alt="image1"/></a>
+						<div class="sb-description">
+							<br/>
+							<h3> En la ventana flotante denominada [Entrar a un salon de chat] se nos solicita la información de a qué grupo de charla deseamos conectarnos.  </h3>
+							<br/>
+							<h3> Los tres campos que determinan una conexión exitosa son: 
+							<br/>1-	[Servidor]:  Debemos especificar sin errores el nombre del servidor que publica la sala de charla, en este caso debe ser el servidor de la división [conference.jabber.cfg.labiofam.cu] 
+							<br/>2-	[Salón]: Debemos especificar el nombre de la sala de charla o chat a la que deseamos conectarnos. 
+							<br/>3-	[Contraseña]: Debemos especificar la clave de acceso para la sala de chat, en este caso no es requerida pues es una conferencia abierta y pueden entrar personas de otras divisiones incluso, solo deben compartir la direccion de nuestro servidor y el nombre de la sala. </h3>
+							<br/>
+							<h3> 1-	Por otra parte, el campo [Alias] determina el nombre con el que nos identifican dentro del grupo de charla, el cual se puede modificar a gusto personal pero como es una conferencia de trabajo se aconseja dejar su nombre completo.  </h3>
+ 							<br/>
+							<h3> En este ejemplo seleccionamos la sala de chat denominada [intranet] y luego damos clic izquierdo sobre el botón [Entrar] </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.division/04.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Como bien podemos observar en la pantalla, nos encontramos dentro de la sala de conferencia, permitiéndonos comunicarnos con todos los integrantes. Los usuarios conectados se muestran en un listado que aparece a la derecha de la ventada, en este ejemplo existen solo 2.  </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.division/05.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> También es posible invitar otras personas de forma explícita para evitar errores a la hora de especificar los datos de conexión a la sala de chat.  </h3>
+							<br/>
+							<h3> Para ello debemos buscar el usuario dentro de nuestra lista de contactos, le damos clic derecho sobre el mismo y clic izquierdo sobre la opción del menú [Invitar a], esta última nos muestra el listado de salas activas, dándole clic izquierdo sobre la deseada.  </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.division/06.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Una vez realizada la invitación se muestra una notificación en la sala de chat y le debe salir al usuario invitado una ventana flotante como la que se muestra en pantalla para que acepte entrar a la conferencia, de lo contrario no podría entrar.    </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.division/07.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Si el usuario decide aceptar entrar en la sala de chat entonces se mostraría una notificación en la sala y aparecería dentro del listado de integrantes de la conferencia. </h3>
+							<br/>
+							<h3> Nótese que la categoría de este usuario es participante porque los anteriores son administradores de la sala de conferencia, esto es algo que se define a la hora de crear la sala de chat. Aunque en términos de comunicación este aspecto es irrelevante. </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.division/08.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> También es posible establecer comunicación privada con algunos de los integrantes, aunque estos no formen parte de nuestros contactos.  </h3>
+							<br/>
+							<h3> Para ello debemos buscarlo dentro del listado que aparece a la derecha de la ventana de conferencia, dar clic derecho sobre el mismo y seleccionar la opción del menú [Enviar mensaje privado]  </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.division/09.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Finalmente se mostraría un cuadro de dialogo donde toda la información que se escriba sería solo dirigida al usuario seleccionado.  </h3>
+						</div>
+					</li>
+				</ul>
+
+				<div id="shadow" class="shadow"></div>
+
+				<div id="nav-arrows" class="nav-arrows">
+					<a href="#">Next</a>
+					<a href="#">Previous</a>
+				</div>
+
+				<div id="nav-dots" class="nav-dots">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+
+			</div><!-- /wrapper -->
+
+
+		</div>
+		<script type="text/javascript" src="js/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery/jquery.slicebox.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				var Page = (function() {
+
+					var $navArrows = $( '#nav-arrows' ).hide(),
+						$navDots = $( '#nav-dots' ).hide(),
+						$nav = $navDots.children( 'span' ),
+						$shadow = $( '#shadow' ).hide(),
+						slicebox = $( '#sb-slider' ).slicebox( {
+							onReady : function() {
+
+								$navArrows.show();
+								$navDots.show();
+								$shadow.show();
+
+							},
+							onBeforeChange : function( pos ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+							}
+						} ),
+						
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+								
+								slicebox.previous();
+								return false;
+
+							} );
+
+							$nav.each( function( i ) {
+							
+								$( this ).on( 'click', function( event ) {
+									
+									var $dot = $( this );
+									
+									if( !slicebox.isActive() ) {
+
+										$nav.removeClass( 'nav-dot-current' );
+										$dot.addClass( 'nav-dot-current' );
+									
+									}
+									
+									slicebox.jump( i + 1 );
+									return false;
+								
+								} );
+								
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+			});
+		</script>
+	</body>
+</html>	

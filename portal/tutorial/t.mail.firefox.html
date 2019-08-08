@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tutoriales</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Slicebox - 3D Image Slider with Fallback" />
+        <meta name="keywords" content="jquery, css3, 3d, webkit, fallback, slider, css3, 3d transforms, slices, rotate, box, automatic" />
+		<meta name="author" content="Pedro Botelho for Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/slicebox.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="wrapper">
+
+				<ul id="sb-slider" class="sb-slider">
+					<li
+						<a href="" target="_blank"><img src="images/mail.firefox/01.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Este tutorial les describe paso a paso las configuraciones necesarias para poder enviar y recibir correos a través del navegador. Nótese que se señalan en color rojo con flechas enumeradas en el orden que deben ir dando los clics.  </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/mail.firefox/02.png" alt="image2"/></a>
+						<div class="sb-description">
+							<h3> En caso de que les salga un pantallazo como este no se preocupe, solo tiene que ir a opciones avanzadas y aceptar el certificado de seguridad para continuar navegando, tal y como se muestra a continuación.     </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/mail.firefox/03.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> De clic izquierdo en el botón de añadir excepción para continuar. </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/mail.firefox/04.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Les debe salir una ventana flotante como esta y dan clic en el botón de confirmar excepción de seguridad. </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/mail.firefox/05.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Recuerden que en el apartado para especificar el usuario debe especificarse el nombre del dominio:  @cfg.labiofam.cu </h3> 
+							<h3> No olvide especificar el idioma a utilizar que en su caso debe ser el Español, además del estilo de vista, tal y como se muestra en la pantalla.</h3> 
+						</div>
+					</li>
+						
+				</ul>
+
+				<div id="shadow" class="shadow"></div>
+
+				<div id="nav-arrows" class="nav-arrows">
+					<a href="#">Next</a>
+					<a href="#">Previous</a>
+				</div>
+
+				<div id="nav-dots" class="nav-dots">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+
+			</div><!-- /wrapper -->
+
+
+		</div>
+		<script type="text/javascript" src="js/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery/jquery.slicebox.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				var Page = (function() {
+
+					var $navArrows = $( '#nav-arrows' ).hide(),
+						$navDots = $( '#nav-dots' ).hide(),
+						$nav = $navDots.children( 'span' ),
+						$shadow = $( '#shadow' ).hide(),
+						slicebox = $( '#sb-slider' ).slicebox( {
+							onReady : function() {
+
+								$navArrows.show();
+								$navDots.show();
+								$shadow.show();
+
+							},
+							onBeforeChange : function( pos ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+							}
+						} ),
+						
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+								
+								slicebox.previous();
+								return false;
+
+							} );
+
+							$nav.each( function( i ) {
+							
+								$( this ).on( 'click', function( event ) {
+									
+									var $dot = $( this );
+									
+									if( !slicebox.isActive() ) {
+
+										$nav.removeClass( 'nav-dot-current' );
+										$dot.addClass( 'nav-dot-current' );
+									
+									}
+									
+									slicebox.jump( i + 1 );
+									return false;
+								
+								} );
+								
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+			});
+		</script>
+	</body>
+</html>	

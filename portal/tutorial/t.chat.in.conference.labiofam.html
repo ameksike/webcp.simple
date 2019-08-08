@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tutoriales</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Slicebox - 3D Image Slider with Fallback" />
+        <meta name="keywords" content="jquery, css3, 3d, webkit, fallback, slider, css3, 3d transforms, slices, rotate, box, automatic" />
+		<meta name="author" content="Pedro Botelho for Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/slicebox.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="wrapper">
+
+				<ul id="sb-slider" class="sb-slider">
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.labiofam/01.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Este tutorial describe como unirme a una sala de chat o conferencia creada para un grupo de trabajo de la empresa labiofam a nivel nacional. </h3>
+							<br/>
+							<h3> El primer paso consiste en conectarnos con nuestra cuenta al servicio de chat de la división y una vez en línea, dar clic izquierdo sobre la opción [Acciones] del menú, luego [Entrar a un grupo de charla], y finalmente dar clic izquierdo sobre [Entrar en un nuevo grupo de charla]    </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.labiofam/02.png" alt="image2"/></a>
+						<div class="sb-description">
+							<h3> Como bien puedemos observar en pantalla se nos muestra una ventana flotante donde se nos solicita la información de a qué grupo de charla deseamos conectarnos.  </h3>
+							<br/>
+							<h3> Los tres campos que determinan una conexión exitosa son: 
+							<br/>1-	[Servidor]:  Debemos especificar sin errores el nombre del servidor que publica la sala de charla, en este caso debe ser el servidor de la oficina central [conference.jabber.labiofam.cu] 
+							<br/>2-	[Salón]: Debemos especificar el nombre de la sala de charla o chat a la que deseamos conectarnos. 
+							<br/>3-	[Contraseña]: Debemos especificar la clave de acceso para la sala de chat, esto es algo que deben mandarnos los organizadores de la conferencia, al igual que el nombre. </h3>
+							<br/>
+							<h3> 1-	Por otra parte, el campo [Alias] determina el nombre con el que nos identifican dentro del grupo de charla, el cual se puede modificar a gusto personal pero como es una conferencia de trabajo se aconseja dejar su nombre completo.  </h3>
+ 
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.labiofam/03.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> En caso de que no estemos seguros del nombre exacto de la sala de chat o si escribimos bien la dirección del servidor, podemos dar clic izquierdo sobre el botón [Navegar salones] para listar todas las salas de chat disponibles en el servidor especificado. Si no hay problemas se debe mostrar una ventana flotante como la que se muestra en pantalla donde se listan las distintas salas de charla activas.   </h3>
+							<h3> Seleccionamos del listado la que nos interesa y le damos entrar.  </h3>
+							<br/>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.labiofam/04.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> En este ejemplo seleccionamos la sala de chat denominada [Negocio] y luego damos clic izquierdo sobre el botón [Entrar] </h3>
+						</div>
+					</li>
+					<li>
+						<a href="" target="_blank"><img src="images/chat.in.conference.labiofam/05.png" alt="image1"/></a>
+						<div class="sb-description">
+							<h3> Finalmente nos solicita la clave de acceso a través de un cuadro de dialogo sobre una ventana flotante. Si la especificamos bien entonces podríamos entrar y establecer comunicación el resto de los usuarios conectados. </h3>
+						</div>
+					</li>
+				</ul>
+
+				<div id="shadow" class="shadow"></div>
+
+				<div id="nav-arrows" class="nav-arrows">
+					<a href="#">Next</a>
+					<a href="#">Previous</a>
+				</div>
+
+				<div id="nav-dots" class="nav-dots">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+
+			</div><!-- /wrapper -->
+
+
+		</div>
+		<script type="text/javascript" src="js/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery/jquery.slicebox.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				var Page = (function() {
+
+					var $navArrows = $( '#nav-arrows' ).hide(),
+						$navDots = $( '#nav-dots' ).hide(),
+						$nav = $navDots.children( 'span' ),
+						$shadow = $( '#shadow' ).hide(),
+						slicebox = $( '#sb-slider' ).slicebox( {
+							onReady : function() {
+
+								$navArrows.show();
+								$navDots.show();
+								$shadow.show();
+
+							},
+							onBeforeChange : function( pos ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+							}
+						} ),
+						
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+								
+								slicebox.previous();
+								return false;
+
+							} );
+
+							$nav.each( function( i ) {
+							
+								$( this ).on( 'click', function( event ) {
+									
+									var $dot = $( this );
+									
+									if( !slicebox.isActive() ) {
+
+										$nav.removeClass( 'nav-dot-current' );
+										$dot.addClass( 'nav-dot-current' );
+									
+									}
+									
+									slicebox.jump( i + 1 );
+									return false;
+								
+								} );
+								
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+			});
+		</script>
+	</body>
+</html>	

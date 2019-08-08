@@ -1,0 +1,8 @@
+/* Effective stylesheet produced by snapshot save */
+html, body { height: 100%; }
+#wrap { min-height: 100%; height: auto; margin: 0px auto -50px; padding: 0px 0px 50px; }
+#main-container { padding-top: 70px; }
+#footer { height: 50px; border-top: 1px solid rgb(234, 234, 234); }
+#footer .container { text-align: center; }
+#footer .container p { margin: 5px; }
+#footer .container a:hover { text-decoration: none; }
