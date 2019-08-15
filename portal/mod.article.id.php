@@ -1,17 +1,42 @@
-<?php include "app.head.php"; ?>
+<?php
+/*
+ *
+ * @package: Simple Web Corporative Portal
+ * @version: 0.1
+ * @authors: Antonio Membrides Espinosa
+ * @mail: tonykssa@gmail.com
+ * @created: 23/4/2011
+ * @updated: 23/4/2011
+ * @license: GPL v3
+ * @require: PHP >= 5.2.*
+ *
+ */
+include "app.head.php"; ?>
 <?php include "app.header.php"; ?>
 
 <body>
 
 <style>
 
-.atxshd{
 
+.art{
+	padding-bottom: 1%;
+	padding-left: 19px; 
+	padding-right: 15px;
+	margin-bottom: 2%;
+	float: left;
+	width: 75%;
 }
+
+.lat{
+	float: right;
+	width: 20%;
+}
+
+.atxshd{}
 
 p{
 	font-size: 15px; 
-	
 }
 
 .artshd{
@@ -20,10 +45,50 @@ p{
 	box-shadow: -7px 10px 14px -1px rgba(0,0,0,0.15);
 }
 
-hr {
+.art hr {
 	height: 1.2px;
 	background-color: #108acb33;
 	border: #0e95dd66;
+}
+
+.seg{
+	padding: 8px 4px;	
+	margin-bottom: 4.917px;
+}
+.seghr {
+	height: 4px;
+	background-color: #009FE3;
+	border: #009FE3;
+	padding-bottom: -4px;
+}
+.seg video{
+	width: 95%;	
+	
+}
+.seg span{
+	color: #000000;
+	
+}
+.segTitle{
+	font-size: 200%;
+	color: #009fe3;
+}
+
+.ntitle{
+	font-size: 15px;
+}
+.nauthor{
+	font-size: 12px;
+}
+.ndiv{
+	height: 1px;
+	background-color: #108acb33;
+	border: #0e95dd66;
+}
+
+.ndate{
+	font-size: 12px;
+	padding-right: 7px; 
 }
 </style>
 
@@ -37,7 +102,7 @@ hr {
 	<!--------------Content--------------->
 	<section id="content" >
 		<div class="wrap-content zerogrid">
-			<div class="art" style="padding-left: 19px; padding-right: 15px;">
+			<div class="art">
 				<?php $out = include "server/article.list.php"; ?>
 				</br>
 				
@@ -45,10 +110,10 @@ hr {
 					if(!empty($out[0]["url"])){
 						echo "<a href='" .$out[0]["url"].  "'>";
 					}
-					if(!empty($out[0]["ico"])){
-						echo '<img class="artshd" src="'.$out[0]["ico"].'"  width="50%">';
+					if(!empty($out[0]["imgfront"])){
+						echo '<img class="artshd" src="'.$out[0]["imgfront"].'"  width="50%">';
 					}
-					if(!empty($out[0]["ico"])){
+					if(!empty($out[0]["imgfront"])){
 						echo "</a>";
 					}
 				?>	
@@ -57,7 +122,7 @@ hr {
 						echo "<a href='" .$out[0]["url"].  "'>";
 					}
 					echo $out[0]["title"]; 
-					if(!empty($out[0]["ico"])){
+					if(!empty($out[0]["imgfront"])){
 						echo "</a>";
 					}
 					?> </h1>
@@ -71,6 +136,40 @@ hr {
 				
 				<p> <?php  echo substr($out[0]["sumary"], 0, strrpos($out[0]["sumary"], "<a") ); ?> </p>
 				<p> <?php  echo $out[0]["description"]; ?> </p>
+			</div>
+
+			<div class="lat"> 
+				<div class="seg">
+					<span class="segTitle">Relevante </span>
+					<hr class="seghr">
+					<?php
+						$vid = '';
+						foreach($config['media']['imp'] as $i){
+							$vid .= '<video style="padding-bottom: 2px;" controls="" autoplay="" poster="'. $config['media']['url'] . $i . '-poster.jpg">';
+							$vid .= '<source src="'. $config['media']['url'] . $i . '.mp4" type="video/mp4">';
+							$vid .= '</video> ';	
+						}		
+						echo $vid;						
+					?>
+				</div>
+				
+				<div class="seg">
+					<span class="segTitle">Informaciones Recientes</span>
+					<hr class="seghr" >
+					<?php
+						$vid = '';
+						foreach($lst as $i){
+							$vid .= '<a href="' .$config['sys']['pag'].$i["id"].  '"> <div> ';
+							$vid .= '<span class="ntitle">'. $i['title'] . '</span> <br>';
+							$vid .= '<span class="ndate">'. $i['date'] . '</span>';
+							$vid .= '<span class="nauthor">'. $i['author'] . '</span> ';
+							$vid .= '<hr class="ndiv">';
+							$vid .= '</div>';
+							$vid .= '</a>';
+						}		
+						echo $vid;						
+					?>
+				</div>
 			</div>
 		</div>
 	</section>

@@ -1,7 +1,16 @@
 <?php
 /*
- * Ejemplo de utilizaci?n basica de la biblioteca Ksike/LQL con Ksike/Secretary
- * */
+ *
+ * @package: Simple Web Corporative Portal
+ * @version: 0.1
+ * @authors: Antonio Membrides Espinosa
+ * @mail: tonykssa@gmail.com
+ * @created: 23/4/2011
+ * @updated: 23/4/2011
+ * @license: GPL v3
+ * @require: PHP >= 5.2.*
+ *
+ */
 
 //... paso 1: definir el espacio de nombres Ksike en el manejador de carga denominado Carrier
 include __DIR__ . "/lib/carrier/src/Main.php";
@@ -11,14 +20,6 @@ Carrier::active(array( 'Ksike'=> __DIR__ .'/lib/' ));
 use Ksike\lql\lib\customise\lqls\src\Main as LQL;
 
 //... paso 3: cargar las variables de configuracion
-/*$config['db']["log"]		= "log/";
-$config['db']["driver"]	 	= "sqlite";					//... valores admitidos: pgsql|mysql|mysqli|sqlite|sqlsrv
-$config['db']["name"]		= "storage";		        //... nombre de la base de datos a la cual debe conectarse
-$config['db']["path"]		= __DIR__ . "/../data/db/";	//... ruta donde se encuentra la base de datos
-$config['db']["extension"]  = "db";						//... default value db
-$config['company']  = "LABIOFAM";*/
-
-
 $config = include __DIR__ . "/config.php";
 
 $config['sys']['pag'] = 'mod.article.id.php?art='; 
@@ -53,6 +54,9 @@ foreach ($out as $k=>$i){
     //$out[$k]['ico'] = "<img src=\"". $out[$k]['avatar'] . "\">";
 	$out[$k]["sumary"] = empty($out[$k]["description"]) ? $out[$k]["sumary"] : $out[$k]["sumary"] . '<a href="'.$config['sys']['pag'].$out[$k]["id"].'"> Leer m&aacute;s... </a>';
 }
+
+$lst = LQL::create($config['db'])->select('*')->from('article', 'a')->orderBy('a.date', 'DESC')->limit(3)->execute();;
+
 
 return $out;
 //print_r(json_encode(array( "data"=>$out)));

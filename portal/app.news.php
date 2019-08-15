@@ -49,7 +49,12 @@ ul#rtl_func > li > ul > li:first-of-type {
   margin-top: 4px;
 }
 
-
+img.imgico {
+  float: left;
+  min-width: 4%;
+  max-width: 22%;
+  margin-right: 5px;
+}
 
 </style>	
 <TD COLSPAN="4"  >
@@ -59,10 +64,11 @@ ul#rtl_func > li > ul > li:first-of-type {
 		<?php
 			$out = include "server/article.list.php";
 			foreach ($out as $k=>$i){
-				$dtas  =  '<li class="list_root" id="f_0">';
-				$dtas .=  '<p class="blok"> <blod>'.$i['date'].'</blod>' . '<a href="'.$i['url'].'" > '.$i['title'].' </a> </p>';
-				
+				$dtas  = '<li class="list_root" id="f_0">';
+				$dtas .= '<p class="blok"> <blod>'.$i['date'].'</blod>' . '<a href="'.$config['sys']['pag'].$i["id"].'" > '.$i['title'].' </a> </p>';
 				$dtas .= '<ul id="c_i" style="padding-left: 0px; "><li>';
+				$dtas .= '<a href="'.$config['sys']['pag'].$i["id"].'">';
+				$dtas .= '<img  src="'.$i['imgico'].'" class="imgico"> </a>';
 				$dtas .= '<p style=" margin-bottom: 7px;  margin-top: 7px; "> '.$i['sumary'].' </p>';
 				$dtas .= "</li></ul>";
 				$dtas .= '</li>';

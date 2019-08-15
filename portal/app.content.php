@@ -9,7 +9,7 @@
 			<TR >
 				<TD> <a href="http://correo.cfg.labiofam.cu"><img class="icotitle" src="images/icos/email_icon.svg"> <b> Correo <br/> </a></TD>
 				<TD> <a href="http://nube.cfg.labiofam.cu"><img class="icotitle" src="images/icos/ftp.svg"> <b> Nube <br/> </a></TD>
-				<TD> <a href="ftp://cloud.cfg.labiofam.cu/videoteca/"><img class="icotitle" src="images/icos/video.svg"> <b> Videoteca <br/> </a></TD>
+				<TD> <a href="http://videoteca.cfg.labiofam.cu"><img class="icotitle" src="images/icos/video.svg"> <b> Videoteca <br/> </a></TD>
 				<TD> <a href="ftp://cloud.cfg.labiofam.cu/memory/"> <img class="icotitle" src="images/icos/base.de.datos.svg"> <b> Memoria Hist&oacute;rica  <br/> </a></TD>
 			</TR>
 			<TR>
