@@ -51,6 +51,11 @@ p{
 	border: #0e95dd66;
 }
 
+.segimg{
+	max-height: 100px;
+	
+}
+
 .seg{
 	padding: 8px 4px;	
 	margin-bottom: 4.917px;
@@ -91,13 +96,6 @@ p{
 	padding-right: 7px; 
 }
 </style>
-
-	<!-- < GRID -->
-	<link rel="stylesheet" type="text/css" href="lib/datatables/DataTables-1.10.16/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" type="text/css" href="lib/grid/person.css">
-	<!-- > GRID -->
-
-	<link rel="stylesheet" href="lib/jquery/themes/base/jquery.ui.all.css">
 
 	<!--------------Content--------------->
 	<section id="content" >
@@ -170,15 +168,17 @@ p{
 						echo $vid;						
 					?>
 				</div>
+				
+				<div class="seg">
+					<span class="segTitle">Reflexiones</span>
+					<hr class="seghr" >
+					<div class="segimg"> <?php include "app.tips.php"; ?> </div>
+				</div>
 			</div>
 		</div>
 	</section>
 <!--------------Footer--------------->
 <?php include "app.footer.php"; ?>
-
-<script type="application/javascript" src="lib/datatables/jQuery-3.2.1/jquery-3.2.1.min.js" ></script>
-<!-- < GRID -->
-<script type="application/javascript" src="lib/datatables/DataTables-1.10.16/js/jquery.dataTables.min.js" ></script>
 
 <script>
 

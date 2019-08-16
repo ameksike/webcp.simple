@@ -1,4 +1,4 @@
-<TD COLSPAN="4" class="vi-lear" >
+
 	<p> <img class="icotitle" src="images/icos/Learning.svg"> <b> TUTORIALES </b> ( Problemas y Soluciones )  </b> <br/>
 		<ul ><li >Versat
 				<ul >
@@ -34,4 +34,3 @@
 			</li>
 		</ul>
 	</p>
-</TD>

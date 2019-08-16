@@ -48,7 +48,7 @@ include "app.head.php"; ?>
 	
 <?php include "app.content.php"; ?>
 <?php include "app.footer.php";  ?>
-<script type="application/javascript" src="lib/jquery/jquery-1.9.1.js"></script>
+
 <script> $( "#home" ).addClass( "current" ); </script>
 </body>
 </html>

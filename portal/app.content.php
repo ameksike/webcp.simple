@@ -87,7 +87,10 @@
 				</TD>
 			</TR
 			<TR>
-				<?php include "app.tutorial.php"; ?>
+				<TD COLSPAN="2" class="vi-lear" > <?php include "app.tutorial.php"; ?> </TD>
+				<TD COLSPAN="2" class="vi-lear" > 
+				<p> <img class="icotitle" src="images/icos/Learning.svg"> <b> REFLEXIONES </b> </b> <br/>
+				<?php include "app.tips.php"; ?> </TD>
 			</TR>
 		</TABLE>
 		
