@@ -59,10 +59,24 @@ img.imgico {
 </style>	
 <TD COLSPAN="4"  >
 	<p> <img class="icotitle" src="images/icos/news01.svg"> <b> NOTICIAS </b> <br/>
-	
+	<?php $out = include "server/article.list.php"; ?>
 	<ul id="rtl_func">
 		<?php
-			$out = include "server/article.list.php";
+			foreach ($rel as $k=>$i){
+				$dtas  = '<li class="list_root" id="f_0">';
+				$dtas .= '<p class="blok"> <blod>'.$i['date'].'</blod>' . '<a href="'.$config['sys']['pag'].$i["id"].'" > '.$i['title'].' </a> </p>';
+				$dtas .= '<ul id="c_i" style="padding-left: 0px; "><li>';
+				$dtas .= '<a href="'.$config['sys']['pag'].$i["id"].'">';
+				$dtas .= '<img  src="'.$i['imgico'].'" class="imgico"> </a>';
+				$dtas .= '<p style="text-align:justify; margin-bottom: 7px;  margin-top: 7px; "> '.$i['sumary'].' </p>';
+				$dtas .= "</li></ul>";
+				$dtas .= '</li>';
+				echo $dtas;
+			}
+		?>
+	</ul>
+	<ul id="rtl_func">
+		<?php
 			foreach ($out as $k=>$i){
 				$dtas  = '<li class="list_root" id="f_0">';
 				$dtas .= '<p class="blok"> <blod>'.$i['date'].'</blod>' . '<a href="'.$config['sys']['pag'].$i["id"].'" > '.$i['title'].' </a> </p>';
@@ -75,7 +89,5 @@ img.imgico {
 				echo $dtas;
 			}
 		?>
-		
 	</ul>
-	
 </TD>

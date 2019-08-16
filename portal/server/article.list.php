@@ -38,13 +38,11 @@ $qm = LQL::create($config['db'])
     ->select('*')
     ->from('article', 'a')
     ->orderBy('a.date', 'DESC')
-    ->limit(6)
+    ->limit(4)
 ;
 
 $qm = isset($_REQUEST['art']) ? $qm->where("id", $_REQUEST['art']) : $qm;
-
 $out = $qm->execute();
-
 $out = !$out ? array() : $out;
 
 foreach ($out as $k=>$i){
@@ -55,8 +53,8 @@ foreach ($out as $k=>$i){
 	$out[$k]["sumary"] = empty($out[$k]["description"]) ? $out[$k]["sumary"] : $out[$k]["sumary"] . '<a href="'.$config['sys']['pag'].$out[$k]["id"].'"> Leer m&aacute;s... </a>';
 }
 
-$lst = LQL::create($config['db'])->select('*')->from('article', 'a')->orderBy('a.date', 'DESC')->limit(3)->execute();;
-
+$lst = LQL::create($config['db'])->select('*')->from('article', 'a')->orderBy('a.date', 'DESC')->limit(3)->execute();
+$rel = LQL::create($config['db'])->select('*')->from('article', 'a')->where('a.status', 'relevant')->orderBy('a.date', 'DESC')->limit(3)->execute();
 
 return $out;
 //print_r(json_encode(array( "data"=>$out)));
