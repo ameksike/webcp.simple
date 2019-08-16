@@ -69,7 +69,7 @@ img.imgico {
 				$dtas .= '<ul id="c_i" style="padding-left: 0px; "><li>';
 				$dtas .= '<a href="'.$config['sys']['pag'].$i["id"].'">';
 				$dtas .= '<img  src="'.$i['imgico'].'" class="imgico"> </a>';
-				$dtas .= '<p style=" margin-bottom: 7px;  margin-top: 7px; "> '.$i['sumary'].' </p>';
+				$dtas .= '<p style="text-align:justify; margin-bottom: 7px;  margin-top: 7px; "> '.$i['sumary'].' </p>';
 				$dtas .= "</li></ul>";
 				$dtas .= '</li>';
 				echo $dtas;

@@ -27,10 +27,10 @@
       </div>
     <![endif]-->
     <!--[if lt IE 9]>
-		<script src="lib/layout/js/html5.js"></script>
-		<script src="lib/layout/js/css3-mediaqueries.js"></script>
+		<script src="lib/layout/js/html5.js"></script> 
+		<script src="lib/layout/js/css3-mediaqueries.js"></script>  type='image/x-icon'
 	<![endif]-->
 
-	<link href='./images/labiofam/logo.ico.svg' rel='icon' type='image/x-icon'/>
+	<link href='./images/labiofam/logo.ico.svg' rel='icon' sizes="32" /> 
 	
 </head>

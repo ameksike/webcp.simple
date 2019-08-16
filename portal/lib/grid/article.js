@@ -1,3 +1,7 @@
+var urlpath = function(){
+	return  window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')+1);
+}
+
 $(document).ready(function() {
         var dt = $('.display').dataTable({
             "processing": true,
@@ -11,7 +15,7 @@ $(document).ready(function() {
             "columnDefs": [
                 {
                     "render": function ( data, type, row ) {
-                        return '<a href="' + row['url'] + '">' + row['title'] +'</a>';
+                        return '<a href="' + urlpath() + "mod.article.id.php?art=" +row['id'] + '">' + row['title'] +'</a>';
                     },
                     "targets": 1
                 }
