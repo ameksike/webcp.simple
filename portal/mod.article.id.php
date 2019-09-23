@@ -95,45 +95,66 @@ p{
 	font-size: 12px;
 	padding-right: 7px; 
 }
+
+.demo-gallery{	
+      overflow: hidden;
+}
+
+.demo-gallery img{
+	max-width: 100% !important;	
+	min-width: 100% !important;	
+}
 </style>
 
 	<!--------------Content--------------->
 	<section id="content" >
 		<div class="wrap-content zerogrid">
 			<div class="art">
-				<?php $out = include "server/article.list.php"; ?>
+				<?php $out = include "server/article.list.php"; 
+					$out = isset($out[0]) ? $out[0] : array(
+						"id"=>"",
+						"title"=>"",
+						"imgfront"=>"",
+						"imgico"=>"",
+						"date"=>date("Y-m-d"),
+						"sumary"=>"",
+						"description"=>"",
+						"author"=>"",
+						"url"=>"","status"=>"normal"  
+					);
+				?>
 				</br>
 				
 				<?php 
-					if(!empty($out[0]["url"])){
-						echo "<a href='" .$out[0]["url"].  "'>";
+					if(!empty($out["url"])){
+						echo "<a href='" .$out["url"].  "'>";
 					}
-					if(!empty($out[0]["imgfront"])){
-						echo '<img class="artshd" src="'.$out[0]["imgfront"].'"  width="50%">';
+					if(!empty($out["imgfront"])){
+						echo '<img class="artshd" src="'.$out["imgfront"].'"  width="50%">';
 					}
-					if(!empty($out[0]["imgfront"])){
+					if(!empty($out["imgfront"])){
 						echo "</a>";
 					}
 				?>	
 				<h1 class="atxshd" style="font-size: 241%; color: #009fe3; margin-bottom: 4.917px;"> <?php  
-					if(!empty($out[0]["url"])){
-						echo "<a href='" .$out[0]["url"].  "'>";
+					if(!empty($out["url"])){
+						echo "<a href='" .$out["url"].  "'>";
 					}
-					echo $out[0]["title"]; 
-					if(!empty($out[0]["imgfront"])){
+					echo $out["title"]; 
+					if(!empty($out["imgfront"])){
 						echo "</a>";
 					}
 					?> </h1>
 				<hr>
 				<h4 style="margin-left: -1px;margin-bottom: -2.033px;margin-top: 0px;"> <b><?php  
 				
-				$date = new DateTime($out[0]["date"]);				
-				echo $date->format('d/m/Y'); ?></b>, escrito por: <b><?php  echo $out[0]["author"]; ?></b> </h4> 
+				$date = new DateTime($out["date"]);				
+				echo $date->format('d/m/Y'); ?></b>, escrito por: <b><?php  echo $out["author"]; ?></b> </h4> 
 				<hr style="padding-bottom: -4px;">
 						
 				
-				<p> <?php  echo substr($out[0]["sumary"], 0, strrpos($out[0]["sumary"], "<a") ); ?> </p>
-				<p> <?php  echo $out[0]["description"]; ?> </p>
+				<p> <?php  echo substr($out["sumary"], 0, strrpos($out["sumary"], "<a") ); ?> </p>
+				<p> <?php  echo $out["description"]; ?> </p>
 			</div>
 
 			<div class="lat"> 

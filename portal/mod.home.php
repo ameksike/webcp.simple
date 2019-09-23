@@ -18,17 +18,17 @@ include "app.head.php"; ?>
 <style>
 		.inf01 {
 			border: 0;
-			width: 75%;
+			width: 90%;
 			font-size: medium;
 		}
 		.inf02 {
 			border: 0;
-			width: 75%;
+			width: 90%;
 			font-size: medium;
 		}
 		.inf03 {
 			border: 0;
-			width: 75%;
+			width: 90%;
 			font-size: medium;
 		}
 		td, th {

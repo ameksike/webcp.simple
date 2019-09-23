@@ -22,6 +22,8 @@ class Main{
 
     public function __construct($cfg=array()){
         $this->cfg = array();
+		$this->conn = null;
+		$this->tmps = array();
         $this->setting($cfg);
     }
 
@@ -35,21 +37,34 @@ class Main{
 
     public function connect($url=false){
         $server = $url ? $url : $this->cfg['server'];
-        $this->conn = ftp_connect($server)
-        or die("Could not connect to {$server}");
+        $this->conn = @ftp_connect($server)
+        or $this->error(1); 
         return $this;
     }
 
     public function login($user=false, $pass=false){
         $user = $user ? $user : $this->cfg['user'];
         $pass = $pass ? $pass : $this->cfg['pass'];
-        $this->login = ftp_login($this->conn, $user, $pass);
-        if(!$this->login) echo 'Error: login';
+        $this->login = @ftp_login($this->conn, $user, $pass);
+        if(!$this->login) $this->error(2);
         return $this;
     }
 
+	public function error($type){
+		switch($type){
+			case 2: 
+				//... login
+			break;
+			
+			case 1: 
+				//... Could not connect to {$server}
+			break;
+		}
+		
+	}
+	
     public function disconnect(){
-        ftp_close($this->conn);
+        @ftp_close($this->conn);
         return $this;
     }
 
@@ -64,7 +79,7 @@ class Main{
     public function search($path='', $deep=1, $action=false, $params=false, $scope=false){
         $this->serc = true;
         $path = $path == '' ? '/' : $path;
-        $lst = ftp_nlist($this->conn, $path);
+        $lst = @ftp_nlist($this->conn, $path);
         $tmp = array();
 
         if(is_array($lst)) foreach($lst as $i){

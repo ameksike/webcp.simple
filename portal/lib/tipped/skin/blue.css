@@ -1,0 +1,76 @@
+/* blue */
+.tpd-skin-blue .tpd-content,
+.tpd-skin-blue .tpd-title,
+.tpd-skin-blue .tpd-close { color: #fff; }
+.tpd-skin-blue .tpd-background-content { background-color: #009FE3; }
+.tpd-skin-blue .tpd-background {
+  border-width: 1px;
+  border-color: rgba(6,0,12,.6);
+}
+.tpd-skin-blue .tpd-background-title { background-color: #009FE3; }
+/* line below the title */
+.tpd-skin-blue .tpd-title-wrapper { border-bottom: 1px solid #009FE3; }
+/* shadow */
+.tpd-skin-blue .tpd-background-shadow { box-shadow: 0 0 8px rgba(0,0,0,.15); }
+/* spinner */
+.tpd-skin-blue .tpd-spinner-spin {
+  border-color: rgba(255,255,255,.2);
+  border-left-color: #fff;
+}
+/* links */
+.tpd-skin-blue a { color: #ddd; }
+.tpd-skin-blue a:hover { color: #c6c6c6; }
+
+
+
+
+.tpd-skin-dark .tpd-content,
+.tpd-skin-dark .tpd-title,
+.tpd-skin-dark .tpd-close { color: #fff; }
+.tpd-skin-dark .tpd-background-content,
+.tpd-skin-dark .tpd-background-title {
+  background-color: #009FE3;
+}
+.tpd-skin-dark .tpd-background {
+  border-width: 1px;
+  border-color: rgba(255,255,255,.1);
+}
+/* line below the title */
+.tpd-skin-dark .tpd-title-wrapper { border-bottom: 1px solid #009FE3; }
+/* spinner */
+.tpd-skin-dark .tpd-spinner-spin {
+  border-color: rgba(255,255,255,.2);
+  border-left-color: #fff;
+}
+/* links */
+.tpd-skin-dark a { color: #ccc; }
+.tpd-skin-dark a:hover { color: #c0c0c0; }
+
+
+/* huge */
+.tpd-size-huge .tpd-content,
+.tpd-size-huge .tpd-title {
+  padding: 15px;
+  font-size: 15px;
+  line-height: 20px;
+}
+.tpd-size-huge .tpd-background { border-radius: 10px; }
+.tpd-size-huge .tpd-stem {
+  width: 24px;
+  height: 12px;
+  margin-left: 8px; /* space from the side */
+  margin-top: 2px; /* space between stem and target */
+}
+.tpd-size-huge.tpd-no-radius .tpd-stem { margin-left: 10px; }
+.tpd-size-huge .tpd-close { margin: 11px 5px 11px 5px; }
+.tpd-size-huge .tpd-close-icon { font-size: 32px; }
+.tpd-size-huge .tpd-spinner {
+  width: 66px;
+  height: 50px;
+}
+.tpd-size-huge .tpd-spinner-spin { margin: 14px 0 0 22px; }
+.tpd-size-huge .tpd-spinner-spin,
+.tpd-size-huge .tpd-spinner-spin:after {
+  width: 22px;
+  height: 22px;
+}

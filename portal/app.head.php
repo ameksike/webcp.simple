@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
 
     <!-- Basic Page Needs
@@ -32,6 +34,7 @@
 	<![endif]-->
 
 	<link href='./images/labiofam/logo.ico.svg' rel='icon' sizes="32" /> 
+	<script type="application/javascript" src="lang/es.js"></script>
 	<script type="application/javascript" src="lib/jquery/jquery.min-1.11.2.js"></script>
 	<!--script type="application/javascript" src="lib/jquery/jquery-1.9.1.js"></script-->
 </head>

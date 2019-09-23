@@ -14,8 +14,16 @@
 include "app.head.php"; ?>
 <?php include "app.header.php"; ?>
 
+<?php 
+	if(isset($_REQUEST['act'])){
+		if($_REQUEST['act']=="del")
+			include "server/article.del.php"; 
+	}
+?>
+
 <body>
 
+	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css">
 	<!-- < GRID -->
 	<link rel="stylesheet" type="text/css" href="lib/datatables/DataTables-1.10.16/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="lib/grid/person.css">
@@ -23,24 +31,43 @@ include "app.head.php"; ?>
 
 	<link rel="stylesheet" href="lib/jquery/themes/base/jquery.ui.all.css">
 
+	<style>
+		.fa {
+			font-size: large;
+			color: #009FE3;
+			margin: 1px;
+		}
+
+		.seg_act{
+			float:right;
+		}
+	</style>
+	
 	<!--------------Content--------------->
 	<section id="content">
 		<div class="wrap-content zerogrid">
+			<div class="seg_act">			
+				<a class="toggle-add" style="display:none;" href="mod.article.edit.php?art=0" data-column="3"><span class="fa fa-plus"> </span></a>
+				<a class="toggle-opt" data-column="3"><span class="fa fa-server"> </span></a>
+			</div>
+
 			<table id="person" class="display" cellspacing="1" width="100%">
 				<thead>
-				<tr>
-								<th>Fecha</th>
-								<th>T&iacute;tulo</th>
-								<th>Sumario</th>
-				</tr>
+					<tr>
+						<th>Fecha</th>
+						<th>T&iacute;tulo</th>
+						<th>Sumario</th>
+						<th>Aciones</th>
+					</tr>
 				</thead>
 
 				<tfoot>
-				<tr>
-								<th>Fecha</th>
-								<th>T&iacute;tulo</th>
-								<th>Sumario</th>
-				</tr>
+					<tr>
+						<th>Fecha</th>
+						<th>T&iacute;tulo</th>
+						<th>Sumario</th>
+						<th>Aciones</th>
+					</tr>
 				</tfoot>
 
 				<tbody></tbody>
@@ -57,7 +84,8 @@ include "app.head.php"; ?>
 <script type="application/javascript" src="lib/grid/article.js" > </script>
 
 <script>
-$( "#article" ).addClass( "current" );
+	$( "#article" ).addClass( "current" );
+
 </script>
 
 </body>
