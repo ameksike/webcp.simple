@@ -153,7 +153,9 @@
 <div class="demo-gallery">
     <ul id="lightgallery" class="list-unstyled row">
       <?php
-        for ($i=1; $i<60; $i++){
+	  
+		$total = $config['media']['tips']['total'];
+        for ($i=1; $i<=$total; $i++){
           $dtas  = '<li id="im'.$i.'" class="col-xs-6 col-sm-4 col-md-3 atips" style="display:none;" style="display:none;" data-responsive="./images/tips/'.$i.'.png" data-src="./images/tips/'.$i.'.png" data-sub-html="">';
           $dtas .= '<a href=""> <img class="img-responsive imgtips"  src="./images/tips/'.$i.'.png">  </a>';
           $dtas .= '</li>';
@@ -168,7 +170,7 @@
 		  $('#lightgallery').lightGallery();
 	});
 
-	var id = Math.floor(Math.random() * 60 + 1);  
+	var id = Math.floor(Math.random() * <?php echo  $total; ?> + 1);  
 	$("#im"+id).css("display", "");
 </script>
 		

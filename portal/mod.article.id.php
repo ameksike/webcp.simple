@@ -110,7 +110,9 @@ p{
 	<section id="content" >
 		<div class="wrap-content zerogrid">
 			<div class="art">
-				<?php $out = include "server/article.list.php"; 
+				<?php 
+					$_REQUEST['type'] = "one" ;
+					$out = include "server/article.list.php"; 
 					$out = isset($out[0]) ? $out[0] : array(
 						"id"=>"",
 						"title"=>"",

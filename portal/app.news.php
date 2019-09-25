@@ -71,6 +71,7 @@
 	
 	<?php 
 		$_REQUEST['limit'] = true;
+		$_REQUEST['type'] = "news";
 		$out = include "server/article.list.php"; 
 	?>
 	<div class="newleft">
@@ -80,7 +81,7 @@
 					$dtas  = '<li class="list_root" id="f_0">'; // <blod>'.$i['date'].'</blod>
 					$dtas .= '<p class="blok"> ' . '<a href="'.$config['sys']['pag'].$i["id"].'" > '.$i['title'].' </a> </p>';
 					$dtas .= '<ul id="c_i" style="padding-left: 0px; "><li>';
-					$dtas .= '<a href="'.$config['sys']['pag'].$i["id"].'">';
+					
 					$dtas .= '<img  src="'.$i['imgico'].'" class="imgico"> </a>';
 					$dtas .= '<p style="text-align:justify; margin-bottom: 7px;  margin-top: 7px; "> '.$i['sumary'].' </p>';
 					$dtas .= "</li></ul>";

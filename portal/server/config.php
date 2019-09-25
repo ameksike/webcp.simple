@@ -10,6 +10,7 @@ $config['db']["extension"]  = "db";						        //... default value db
 $config['media']['url'] = "http://videoteca.cfg.labiofam.cu/emby/";
 $config['media']['imp'][] = "informatica/nube/Cuntos_megas_de_Internet_necesito";
 $config['media']['imp'][] = "labiofam/20190513-Consejo";
+$config['media']['tips']['total'] = 114;
 
 
 $config['company']['field']  = "p.role";

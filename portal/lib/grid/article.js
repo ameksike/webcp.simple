@@ -7,7 +7,7 @@ $(document).ready(function() {
             "processing": true,
             "serverSide": false,
             "ajax": {
-                "url": "server/article.get.php",
+                "url": "server/article.get.php?type=all",
                 "type": "POST"
             },
             "pagingType": "full_numbers",

@@ -20,19 +20,31 @@ use Ksike\lql\lib\customise\lqls\src\Main as LQL;
 $config = include __DIR__ . "/config.php";
 $config['sys']['pag'] = 'mod.article.id.php?art='; 
 //... paso 4: configurar la biblioteca
+
 $qm = LQL::create($config['db'])
     ->select('*')
     ->from('article', 'a')
-    ->orderBy('a.date', 'DESC')
 ;
-$qm  = isset($_REQUEST['limit']) ? $qm->limit(4) : $qm;
-$qm  = isset($_REQUEST['art']) ? $qm->where("id", $_REQUEST['art']) : $qm;
+
+$_REQUEST['type'] = !isset($_REQUEST['type']) ? "all" : $_REQUEST['type'];
+switch($_REQUEST['type']){
+	case "one":
+		$_REQUEST['art'] = !isset($_REQUEST['art']) ? 1 : $_REQUEST['art'];
+		$qm  = $qm->limit(1)->where("id", $_REQUEST['art']);
+	break;
+	case "news":
+		$qm  = $qm->limit(4)->where('a.status', 'normal')->orderBy('a.date', 'DESC');
+	break;
+	default:
+		$qm  = $qm->orderBy('a.date', 'DESC');
+	break;
+}
+
 $out = $qm->execute();
 $out = !$out ? array() : $out;
 
-
 $lst = LQL::create($config['db'])->select('*')->from('article', 'a')->orderBy('a.date', 'DESC')->limit(3)->execute();
-$rel = LQL::create($config['db'])->select('*')->from('article', 'a')->where('a.status', 'relevant')->orderBy('a.date', 'DESC')->limit(3)->execute();
+$rel = LQL::create($config['db'])->select('*')->from('article', 'a')->where('a.status', 'relevant')->orderBy('a.date', 'DESC')->limit(2)->execute();
 
 return $out;
 //print_r(json_encode(array( "data"=>$out)));
