@@ -25,7 +25,7 @@ function validate($obj, $key){
 if(isset($_REQUEST['btnSafe'])){
 	$config = include __DIR__ . "/config.php";
 	$obj = $_REQUEST;
-	unset($obj['btnSafe'], $obj['art']);
+	unset($obj['btnSafe'], $obj['art'], $obj['type']);
 	$obj['description'] = validate($obj, 'description');
 	$obj['sumary'] = validate($obj, 'sumary');
 	

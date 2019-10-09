@@ -35,6 +35,19 @@ switch($_REQUEST['type']){
 	case "news":
 		$qm  = $qm->limit(4)->where('a.status', 'normal')->orderBy('a.date', 'DESC');
 	break;
+	case "new":
+		return array(array(
+			"id"=>"",
+			"title"=>"",
+			"imgfront"=>"",
+			"imgico"=>"",
+			"date"=>date("Y-m-d"),
+			"sumary"=>"",
+			"description"=>"",
+			"author"=>"",
+			"url"=>"","status"=>"normal"  
+		));
+	break;
 	default:
 		$qm  = $qm->orderBy('a.date', 'DESC');
 	break;

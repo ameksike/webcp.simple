@@ -14,6 +14,7 @@
 include "app.head.php"; ?>
 <?php include "app.header.php"; ?>
 <?php 
+	$_REQUEST['type'] = $_REQUEST['art']=="" || $_REQUEST['art']=="0" ? "new" : "one";
 	$out = include "server/article.list.php"; 
 	$out = isset($out[0]) ? $out[0] : array(
 		"id"=>"",
