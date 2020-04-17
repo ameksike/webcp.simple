@@ -70,7 +70,7 @@ img{
 	.social{top:50px; right: 5px;}
 	/* -------------------------------------------- */
 	/* ------------------Header-------------------- */
-	nav .wrap-nav {position:relative; height: 37px; left:0px; top:0px;}
+	nav .wrap-nav {position:relative; height: 37px; left:0px; top:-37px;}
 	.menu{display:none;}
 	.minimenu{display:block;}
 	

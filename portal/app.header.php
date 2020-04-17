@@ -23,15 +23,15 @@
 					</ul>
 				</div>
 				
-				<div class="minimenu"><div>MENU</div>
+				<div class="minimenu"> <div>MENU</div>
 					<select onchange="location=this.value">
 						<option></option>
 						<option value="index.php">Inicio</option>
 						<option value="mod.person.php">Directorio</option>
-						<option value="mod.phonebook.php">Gu&iacute;a Telef&oacute;nica</option>
-						<option value="mod.phoneuser.php">Telefono X Usuario</option>
+						<option value="mod.gphone.php">Gu&iacute;a Telef&oacute;nica</option>
 						<option value="mod.service.php">Servicios</option>
-						<option value="mod.article.php">Servicios</option>
+						<option value="mod.store.php">Almacen</option>
+						<option value="mod.article.php">Noticias</option>
 					</select>
 				</div>
 			</div>
