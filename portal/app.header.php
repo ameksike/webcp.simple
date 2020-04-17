@@ -1,14 +1,20 @@
 <!--------------Header--------------->
 <header>
 	<div class="wrap-header zerogrid">
-		<div id="logo"><a href="index.php"><img src="./images/labiofam/logo.all.svg" width="35%" /></a></div>
-		<div class="social">
-			<ul>
-				<li><a href="https://www.facebook.com/profile.php?id=321544761799582"><img src="./images/social/facebook-icon.png" /></a></li>
-				<li><a href="#"><img src="./images/social/google-icon.png" /></a></li>
-				<li><a href="https://twitter.com/LabiofamC"><img src="./images/social/twitter-bird-icon.png" /></a></li>
-				<li><a href="#"><img src="./images/social/rss-icon.png" /></a></li>
-			</ul>
+		<div class="row">
+			<div class="col-1-2">
+				<div id="logo"><a href="index.php"><img src="./images/labiofam/logo.all.svg" width="35%" /></a></div>
+			</div>
+			<div class="col-1-2">
+				<div class="social">
+					<ul>
+						<li><a href="https://www.facebook.com/profile.php?id=321544761799582"><img src="./images/social/facebook-icon.png" /></a></li>
+						<li><a href="#"><img src="./images/social/google-icon.png" /></a></li>
+						<li><a href="https://twitter.com/LabiofamC"><img src="./images/social/twitter-bird-icon.png" /></a></li>
+						<li><a href="#"><img src="./images/social/rss-icon.png" /></a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<nav>
 			<div class="wrap-nav">

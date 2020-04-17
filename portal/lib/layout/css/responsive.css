@@ -34,7 +34,11 @@ img{
 	header {margin-top: 0px;height:150px;}
 	header #logo{top:60px;}
 
-	nav .wrap-nav{top: 10px; left:10px; right:auto;}
+	nav .wrap-nav{
+		top: 10px; 
+		left:10px; 
+		right:auto;
+	}
 	
 	/* -------------------------------------------- */
 	/* ------------------Content------------------- */
@@ -51,7 +55,6 @@ img{
 	/* ------------------Header-------------------- */
 	header{height: 210px;}
 	header #logo{top: 120px;}
-
 	.social{top:50px; right: 5px;}
 	/* -------------------------------------------- */
 	/* ------------------Content------------------- */
@@ -66,11 +69,15 @@ img{
 @media only screen and (max-width: 479px) {
 	header{height: 210px;}
 	header #logo{top: 120px;}
-
 	.social{top:50px; right: 5px;}
 	/* -------------------------------------------- */
 	/* ------------------Header-------------------- */
-	nav .wrap-nav {position:relative; height: 37px; left:0px; top:-37px;}
+	nav .wrap-nav {
+		position:relative; 
+		height: 37px; 
+		left:0px; 
+		top:-40px;
+	}
 	.menu{display:none;}
 	.minimenu{display:block;}
 	
