@@ -63,7 +63,7 @@
 							
 							<li>Externos
 								<ul>
-									<li> <a href="http://conferencia.labiofam.cu/">Videoconferencia Empresarial</a> </li>
+									<li> <a href="http://lab-conferencia.labiofam.cu/">Videoconferencia Empresarial</a> </li> <!-- http://conferencia.labiofam.cu/    http://lab-conferencia.labiofam.cu/  -->
 									<li>  <a href="ftp://ftp.eicma.cu">FTP EICMA</a> </li>
 									<li> <a href="ftp://ftp.cfg.labiofam.cu">FTP LABIOFAM</a> </li>
 								</ul>

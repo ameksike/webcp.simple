@@ -78,12 +78,15 @@
 		<ul id="rtl_func">
 			<?php
 				foreach ($rel as $k=>$i){
-					$dtas  = '<li class="list_root" id="f_0">'; // <blod>'.$i['date'].'</blod>
-					$dtas .= '<p class="blok"> ' . '<a href="'.$config['sys']['pag'].$i["id"].'" > '.$i['title'].' </a> </p>';
-					$dtas .= '<ul id="c_i" style="padding-left: 0px; "><li>';
-					
-					$dtas .= '<img  src="'.$i['imgico'].'" class="imgico"> </a>';
-					$dtas .= '<p style="text-align:justify; margin-bottom: 7px;  margin-top: 7px; "> '.$i['sumary'].' </p>';
+					$dtas  = '';
+					$dtas .= '<a href="'.$config['sys']['pag'].$i["id"].'" > ';
+					$dtas .= ' <li class="list_root" id="f_0">'; 
+					$dtas .= '   <p class="blok"> ' .$i['title'].'</p>';
+					$dtas .= '   <ul id="c_i" style="padding-left: 0px; "><li>';
+					$dtas .= '<a href="'.$config['sys']['pag'].$i["id"].'">' . '<img  src="'.$i['imgico'].'" class="imgico"> </a>';
+					$dtas .= '<p style="text-align:justify; margin-bottom: 7px;  margin-top: 7px; "> '.$i['sumary'];
+					$dtas .= '<b> <a href="'.$config['sys']['pag'].$i["id"].'" > leer m&aacute;s [...] </a> </b>';
+					$dtas .= ' </p>';
 					$dtas .= "</li></ul>";
 					$dtas .= '</li>';
 					echo $dtas;
@@ -96,12 +99,16 @@
 		<ul id="rtl_func">
 			<?php
 				foreach ($out as $k=>$i){
-					$dtas  = '<li class="list_root" id="f_0">'; // <blod>'.$i['date'].'</blod>
-					$dtas .= '<p class="blok"> ' . '<a href="'.$config['sys']['pag'].$i["id"].'" > '.$i['title'].' </a> </p>';
+					$dtas  = '';
+					$dtas .= '<a href="'.$config['sys']['pag'].$i["id"].'" > ';
+					$dtas .= '<li class="list_root" id="f_0">'; 
+					$dtas .= '<p class="blok"> ' . $i['title'].'</p>';
 					$dtas .= '<ul id="c_i" style="padding-left: 0px; "><li>';
 					$dtas .= '<a href="'.$config['sys']['pag'].$i["id"].'">';
 					$dtas .= '<img  src="'.$i['imgico'].'" class="imgico"> </a>';
-					$dtas .= '<p style="text-align:justify; margin-bottom: 7px;  margin-top: 7px; "> '.$i['sumary'].' </p>';
+					$dtas .= '<p style="text-align:justify; margin-bottom: 7px;  margin-top: 7px; "> '.$i['sumary'];
+					$dtas .= '<b> <a href="'.$config['sys']['pag'].$i["id"].'" > leer m&aacute;s [...] </a> </b>';
+					$dtas .= ' </p>';
 					$dtas .= "</li></ul>";
 					$dtas .= '</li>';
 					echo $dtas;
