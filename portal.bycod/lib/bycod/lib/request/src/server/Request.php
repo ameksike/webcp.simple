@@ -32,8 +32,8 @@
 					$param = $_REQUEST;
 					foreach($param as $k=>$i) $param[$k] = $this->jsondecode($i);
 					$pretty = $this->pretty();
-					$param['controller'] = $pretty[1];
-					$param['action'] = $pretty[2];
+					$param['controller'] = isset($pretty[1]) ? $pretty[1] : '' ;
+					$param['action'] = isset($pretty[2]) ? $pretty[2] : '';
 					$param['param'] = isset($pretty[3]) ? $pretty[3] : '';
 				} 
 				$this->all = $param;

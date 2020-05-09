@@ -23,6 +23,7 @@
                             <li><a href="#"><?php echo $idiom['main']['service']['cloud']['title']; ?></a></li>
                             <li><a href="#"><?php echo $idiom['main']['service']['videoteca']['title']; ?></a></li>
                             <li><a href="#"><?php echo $idiom['main']['service']['memoria']['title']; ?></a></li>
+                            <li><a href="<?php echo $assist->view->url("dashboard/index"); ?>"><?php echo $idiom['main']['service']['dashboard']['title']; ?></a></li>
                         </ul>
                     </div>
                 </div>

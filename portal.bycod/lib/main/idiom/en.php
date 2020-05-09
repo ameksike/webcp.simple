@@ -10,6 +10,7 @@ $idiom['main']['service']['cloud']['title'] = "Nube";
 $idiom['main']['service']['videoteca']['title'] = "Videoteca institucional";
 $idiom['main']['service']['memoria']['title'] = "Memoria Hist&oacute;rica";
 $idiom['main']['service']['title'] = 'Servicios'; 
+$idiom['main']['service']['dashboard']['title'] = 'Dashboard'; 
 
 $idiom['news']['type']['new']  = 'New';
 $idiom['news']['type']['important']  = 'Important';
