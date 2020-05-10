@@ -3017,6 +3017,9 @@ input[type=button].btn-block {
   height: 50px;
 }
 
+.menu_header .svg-inline--fa{
+  color: #007bff;
+}
 .dropdown-menu .black {
 
   background-color: #343a40 !important;

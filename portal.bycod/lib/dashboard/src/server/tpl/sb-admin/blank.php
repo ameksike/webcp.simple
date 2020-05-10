@@ -11,11 +11,17 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid">
+                    <div class="container-fluid ">
                         <!-- content_head_page -->
-                        <h1 class="mt-4"><?php if(isset($data['page_title'])) echo $data['page_title']; ?></h1>
+                        <h1 class="mt-4 menu_header">
+                        <?php if(isset($data['page_title_ico'])) echo ' <span class="'.$data['page_title_ico'].'"></span>' ; ?>
+                            <?php if(isset($data['page_title'])) echo $data['page_title']; ?>
+                        </h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active"><?php if(isset($data['page_subtitle'])) echo $data['page_subtitle']; ?></li>
+                            <li class="breadcrumb-item active">
+                                <?php if(isset($data['page_subtitle_ico'])) echo ' <span class="'.$data['page_subtitle_ico'].'"></span>' ; ?>
+                                <?php if(isset($data['page_subtitle'])) echo $data['page_subtitle']; ?>
+                            </li>
                         </ol>
                         <?php if(isset($data['page_head'])) echo $data['page_head']; ?>
                     </div>

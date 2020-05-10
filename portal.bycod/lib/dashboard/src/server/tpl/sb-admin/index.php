@@ -17,9 +17,12 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid">
+                    <div class="container-fluid ">
                         <!-- content_head_page -->
-                        <h1 class="mt-4"><?php echo $idiom['dashboard']['main']['title']; ?></h1>
+                        <h1 class="mt-4 menu_header">
+                            <span class="fas fa-tachometer-alt"></span>
+                            <?php echo $idiom['dashboard']['main']['title']; ?>
+                        </h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active"><?php echo $idiom['dashboard']['main']['subtitle']; ?></li>
                         </ol>

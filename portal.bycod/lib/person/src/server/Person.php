@@ -104,8 +104,9 @@
             $this->view = 'dashboard:sb-admin/blank';
             return array(
                 "active"=>"portfolio",
+                "page_title_ico"=>  "fas fa-user",
                 "page_title"=> $idiom['person']['admin']['title'],
-                "page_subtitle"=> $idiom['person']['admin']['subtitle'],
+                "page_subtitle"=> $idiom['person']['admin']['subtitle'] . ' / ' .  $idiom['person']['admin']['title'],
                 "page_head"=> $this->assist->view->css('Person', 'person'),
                 "page_footer"=> $this->assist->view->js('Person', 'person'),
                 "page_body"=> $this->assist->view->compile('person:sb-admin/list')

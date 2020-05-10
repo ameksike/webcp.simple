@@ -29,17 +29,20 @@ $idiom['news']['header0'] = 'Enterate';
 $idiom['news']['header1'] = 'Nuestras';
 $idiom['news']['header2'] = 'Informaciones';
 $idiom['news']['footer1'] = 'En esta sección podrás estar al tanto de nuestras informaciones a lo interno de la empresa, como del acontecer nacional e internacional.';
-$idiom['news']['admin']['title'] = 'Articulos';
-$idiom['news']['admin']['subtitle'] = 'Noticias';
+$idiom['news']['admin']['subtitle'] = 'Articulos';
+$idiom['news']['admin']['title'] = 'Noticias';
 
-$idiom['docs']['admin']['title'] = 'Articulos';
-$idiom['docs']['admin']['subtitle'] = 'Documentos';
+$idiom['docs']['admin']['subtitle'] = 'Articulos';
+$idiom['docs']['admin']['title'] = 'Documentos';
 
-$idiom['phone']['admin']['title'] = 'Directorio';
-$idiom['phone']['admin']['subtitle'] = 'Telefonos';
+$idiom['phone']['admin']['subtitle'] = 'Directorio';
+$idiom['phone']['admin']['title'] = 'Telefonos';
 
-$idiom['person']['admin']['title'] = 'Directorio';
-$idiom['person']['admin']['subtitle'] = 'Personas';
+$idiom['person']['admin']['subtitle'] = 'Directorio';
+$idiom['person']['admin']['title'] = 'Personas';
+
+$idiom['portfolio']['admin']['subtitle'] = 'Articulos';
+$idiom['portfolio']['admin']['title'] = 'Portfolio';
 
 $idiom["features"]['title'] = 'Caracteristicas';
 $idiom["portfolio"]['title'] = 'Portafolio';
@@ -56,8 +59,8 @@ $idiom["login"]['opt']['log'] = 'Actividad';
 $idiom["search"]['title'] = 'Buscar';
 $idiom["search"]['placeholder'] = "Buscar por...";
 
-$idiom['language']['admin']['title'] = "Herramientas";
-$idiom['language']['admin']['subtitle'] = "Idioma";
+$idiom['language']['admin']['subtitle'] = "Herramientas";
+$idiom['language']['admin']['title'] = "Idioma";
 
 $idiom['dashboard']['main']['title'] = 'Panel de Administración';
 $idiom['dashboard']['main']['subtitle'] = 'Tablero';

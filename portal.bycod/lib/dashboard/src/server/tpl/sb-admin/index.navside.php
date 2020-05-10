@@ -13,22 +13,22 @@
             <!-- ITEM 2 -->
             <div class="sb-sidenav-menu-heading"> <?php echo  $idiom['dashboard']['menu'][1]['title']; ?> </div>
             <a class="nav-link" href="<?php echo $assist->view->url("person/show"); ?>" ><div class="sb-nav-link-icon">
-                <i class="fas fa-chart-area"></i></div>
+                <i class="fas fa-user"></i></div>
                 <?php echo $idiom['dashboard']['menu'][1]['menu'][0]['title']; ?>
             </a >
             <a class="nav-link" href="<?php echo $assist->view->url("phone/show"); ?>" >
-                <div class="sb-nav-link-icon"> <i class="fas fa-table"></i></div>
+                <div class="sb-nav-link-icon"> <i class="fas fa-phone"></i></div>
                 <?php echo $idiom['dashboard']['menu'][1]['menu'][1]['title'] ; ?>
             </a >
 
             <!-- ITEM 3 -->
             <div class="sb-sidenav-menu-heading"> <?php echo  $idiom['dashboard']['menu'][2]['title']; ?> </div>
             <a class="nav-link" href="<?php echo $assist->view->url("news/show"); ?>" ><div class="sb-nav-link-icon">
-                <i class="fas fa-chart-area"></i></div>
+                <i class="fas fa-newspaper"></i></div>
                 <?php echo $idiom['dashboard']['menu'][2]['menu'][0]['title']; ?>
             </a >
             <a class="nav-link" href="<?php echo $assist->view->url("docs/show"); ?>" >
-                <div class="sb-nav-link-icon"> <i class="fas fa-table"></i></div>
+                <div class="sb-nav-link-icon"> <i class="fas fa-book"></i></div>
                 <?php echo $idiom['dashboard']['menu'][2]['menu'][1]['title'] ; ?>
             </a >
             <a class="nav-link" href="<?php echo $assist->view->url("portfolio/show"); ?>" >
@@ -41,7 +41,7 @@
             
             <!-- ITEM 4 TOOL Idiom-->
             <a class="nav-link" href="<?php echo $assist->view->url("language/show"); ?>" >
-                <div class="sb-nav-link-icon"> <i class="fas fa-table"></i></div>
+                <div class="sb-nav-link-icon"> <i class="fas fa-globe"></i></div>
                 <?php echo $idiom['dashboard']['menu'][3]['menu'][0]['title'] ; ?>
             </a >
 

@@ -17,5 +17,19 @@
 		public function index(){
             $this->view = ':debug/portfolio';
             return array("active"=>"portfolio");
-		}
+        }
+        
+        
+        public function show(){
+            $idiom = $this->assist->view->idiom("main"); 
+            $this->view = 'dashboard:sb-admin/blank';
+            return array(
+                "page_title_ico"=>  "fas fa-phone",
+                "page_title"=> $idiom['portfolio']['admin']['title'],
+                "page_subtitle"=> $idiom['portfolio']['admin']['subtitle'] . ' / '.$idiom['portfolio']['admin']['title'],
+                "page_head"=> $this->assist->view->css('portfolio', 'portfolio'),
+                "page_footer"=> $this->assist->view->js('portfolio', 'portfolio'),
+                "page_body"=> $this->assist->view->compile('portfolio:sb-admin/list')
+            );
+        }
 	} 

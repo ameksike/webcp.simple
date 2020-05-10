@@ -33,8 +33,9 @@ class Docs
         $this->view = 'dashboard:sb-admin/blank';
         return array(
             "active"=>"portfolio",
+            "page_title_ico"=>  "fas fa-book",
             "page_title"=> $idiom['docs']['admin']['title'],
-            "page_subtitle"=> $idiom['docs']['admin']['subtitle'],
+            "page_subtitle"=> $idiom['docs']['admin']['subtitle'] . ' / ' . $idiom['docs']['admin']['title'],
             "page_head"=> $this->assist->view->css('Docs', 'docs'),
             "page_footer"=> $this->assist->view->js('Docs', 'docs'),
             "page_body"=> $this->assist->view->compile('docs:sb-admin/list')

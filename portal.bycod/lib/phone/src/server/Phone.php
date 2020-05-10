@@ -33,8 +33,9 @@ class Phone
         $this->view = 'dashboard:sb-admin/blank';
         return array(
             "active"=>"portfolio",
+            "page_title_ico"=>  "fas fa-phone",
             "page_title"=> $idiom['phone']['admin']['title'],
-            "page_subtitle"=> $idiom['phone']['admin']['subtitle'],
+            "page_subtitle"=> $idiom['phone']['admin']['subtitle'] . ' / '. $idiom['phone']['admin']['title'],
             "page_head"=> $this->assist->view->css('Phone', 'phone'),
             "page_footer"=> $this->assist->view->js('Phone', 'phone'),
             "page_body"=> $this->assist->view->compile('phone:sb-admin/list')

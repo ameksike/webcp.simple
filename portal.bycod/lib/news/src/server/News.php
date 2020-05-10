@@ -34,8 +34,11 @@ class News
         $this->view = 'dashboard:sb-admin/blank';
         return array(
             "active"=>"portfolio",
-            "page_title"=> $idiom['docs']['admin']['title'],
-            "page_subtitle"=> $idiom['docs']['admin']['subtitle'],
+            "page_title_ico"=>  "fas fa-newspaper",
+            "page_head"=> $this->assist->view->css('News', 'news'),
+            "page_footer"=> $this->assist->view->js('News', 'news'),
+            "page_title"=>  $idiom['news']['admin']['title'],
+            "page_subtitle"=> $idiom['news']['admin']['subtitle'] . ' / ' .  $idiom['news']['admin']['title'],
            // "page_head"=> "",
             "page_body"=> $this->assist->view->compile('news:sb-admin/list')
         );

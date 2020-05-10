@@ -34,7 +34,7 @@ class language
         return array(
             "active"=>"portfolio",
             "page_title"=> $idiom['language']['admin']['title'],
-            "page_subtitle"=> $idiom['language']['admin']['subtitle'],
+            "page_subtitle"=> $idiom['language']['admin']['subtitle'] . ' / ' . $idiom['language']['admin']['title'],
             "page_head"=> $this->assist->view->css('Language', 'language'),
             "page_footer"=> $this->assist->view->js('Language', 'language'),
             "page_body"=> $this->assist->view->compile('language:sb-admin/list')
