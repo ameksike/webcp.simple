@@ -15,7 +15,33 @@
         }
 
 		public function index(){
+        $idiom = $this->assist->view->idiom("main"); 
            $this->view = ':sb-admin/index';
-           return array("active"=>"about");
-		}
+           return array(
+               "page_title"=> $idiom['dashboard']['conditions']['title'],
+               "page_subtitle"=> $idiom['dashboard']['conditions']['subtitle']
+            );
+        }
+        
+        public function privacy(){
+            $idiom = $this->assist->view->idiom("main"); 
+            $this->view = 'dashboard:sb-admin/blank';
+            return array(
+                "active"=>"portfolio",
+                "page_title"=> $idiom['dashboard']['privacy']['title'],
+                "page_subtitle"=> $idiom['dashboard']['privacy']['subtitle'],
+                "page_body"=> $this->assist->view->compile(':sb-admin/privacy')
+            );
+        }
+
+        public function conditions(){
+            $idiom = $this->assist->view->idiom("main"); 
+            $this->view = 'dashboard:sb-admin/blank';
+            return array(
+                "active"=>"portfolio",
+                "page_title"=> $idiom['dashboard']['conditions']['title'],
+                "page_subtitle"=> $idiom['dashboard']['conditions']['subtitle'],
+                "page_body"=> $this->assist->view->compile(':sb-admin/conditions')
+            );
+        }
 	} 

@@ -29,12 +29,42 @@ $idiom['news']['header0'] = 'Enterate';
 $idiom['news']['header1'] = 'Nuestras';
 $idiom['news']['header2'] = 'Informaciones';
 $idiom['news']['footer1'] = 'En esta sección podrás estar al tanto de nuestras informaciones a lo interno de la empresa, como del acontecer nacional e internacional.';
+$idiom['news']['admin']['title'] = 'Articulos';
+$idiom['news']['admin']['subtitle'] = 'Noticias';
+
+$idiom['docs']['admin']['title'] = 'Articulos';
+$idiom['docs']['admin']['subtitle'] = 'Documentos';
+
+$idiom['phone']['admin']['title'] = 'Directorio';
+$idiom['phone']['admin']['subtitle'] = 'Telefonos';
+
+$idiom['person']['admin']['title'] = 'Directorio';
+$idiom['person']['admin']['subtitle'] = 'Personas';
 
 $idiom["features"]['title'] = 'Caracteristicas';
 $idiom["portfolio"]['title'] = 'Portafolio';
 $idiom["contact"]['title'] = 'Contactacto';
 $idiom["about"]['title'] = 'Ayuda';
+
 $idiom["login"]['title'] = 'Registrarse';
+$idiom["login"]['opt']['login'] = 'Entrar';
+$idiom["login"]['opt']['logout'] = 'Salir';
+$idiom["login"]['opt']['register'] = 'Registrarse';
+$idiom["login"]['opt']['setting'] = 'Configuracion';
+$idiom["login"]['opt']['log'] = 'Actividad';
+
+$idiom["search"]['title'] = 'Buscar';
+$idiom["search"]['placeholder'] = "Buscar por...";
+
+$idiom['language']['admin']['title'] = "Herramientas";
+$idiom['language']['admin']['subtitle'] = "Idioma";
+
+$idiom['dashboard']['main']['title'] = 'Panel de Administración';
+$idiom['dashboard']['main']['subtitle'] = 'Tablero';
+$idiom['dashboard']['conditions']['title'] = 'Panel de Administración';
+$idiom['dashboard']['conditions']['subtitle'] = 'Terminos y Condiciones';
+$idiom['dashboard']['privacy']['title'] = 'Panel de Administración';
+$idiom['dashboard']['privacy']['subtitle'] = 'Privacidad';
 
 $idiom['dashboard']['menu'][0]['title'] = "Inicio";
 $idiom['dashboard']['menu'][0]['menu'][0]['title']  = 'Tablero';
@@ -45,13 +75,27 @@ $idiom['dashboard']['menu'][1]['menu'][1]['title'] = "Telefonos";
 $idiom['dashboard']['menu'][2]['title'] = "Articulos";
 $idiom['dashboard']['menu'][2]['menu'][0]['title'] = "Noticias";
 $idiom['dashboard']['menu'][2]['menu'][1]['title'] = "Documentos";
+$idiom['dashboard']['menu'][2]['menu'][2]['title'] = "Productos";
 $idiom['dashboard']['menu'][3]['title'] = "Herramientas";
+$idiom['dashboard']['menu'][3]['menu'][0]['title'] = "Idioma";
+$idiom['dashboard']['menu'][3]['menu'][1]['title'] = "Empresa";
+$idiom['dashboard']['menu'][3]['menu'][1]['menu'][0]['title'] = "Vinacon";
+$idiom['dashboard']['menu'][3]['menu'][1]['menu'][1]['title'] = "Contratos";
+$idiom['dashboard']['menu'][3]['menu'][2]['title'] = "Externas";
+$idiom['dashboard']['menu'][3]['menu'][2]['menu'][0]['title'] = "EICMA";
+$idiom['dashboard']['menu'][3]['menu'][2]['menu'][0]['menu'][0]['title'] = "FTP";
+$idiom['dashboard']['menu'][3]['menu'][2]['menu'][0]['menu'][1]['title'] = "OTRA";
+$idiom['dashboard']['menu'][3]['menu'][2]['menu'][1]['title'] = "OSDE";
+$idiom['dashboard']['menu'][3]['menu'][2]['menu'][1]['menu'][0]['title'] = "Conferencia";
+$idiom['dashboard']['menu'][3]['menu'][2]['menu'][1]['menu'][1]['title'] = "Vinacon";
+$idiom['dashboard']['menu'][3]['menu'][2]['menu'][2]['title'] = "GOB";
+$idiom['dashboard']['menu'][3]['menu'][2]['menu'][2]['menu'][0]['title'] = "Gaceta";
+$idiom['dashboard']['menu'][3]['menu'][2]['menu'][2]['menu'][1]['title'] = "Energia";
 
+$idiom['dashboard']['card']['details'] = 'Ver Detalles';
+$idiom['dashboard']['cards'][0]['title'] = "Noticias";
+$idiom['dashboard']['cards'][1]['title'] = "Documentos";
+$idiom['dashboard']['cards'][2]['title'] = "Personas";
+$idiom['dashboard']['cards'][3]['title'] = "Telefonos";
 
-/*
-$idiom['dashboard']['menu'][1]['menu'][0]['menu'][0]['title'] = "Listar";
-$idiom['dashboard']['menu'][1]['menu'][0]['menu'][1]['title'] = "Adicionar";
-$idiom['dashboard']['menu'][1]['menu'][1]['menu'][0]['title'] = "Listar";
-$idiom['dashboard']['menu'][1]['menu'][1]['menu'][1]['title'] = "Adicionar";
-*/
 return $idiom;

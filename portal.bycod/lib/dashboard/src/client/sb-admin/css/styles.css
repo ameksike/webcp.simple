@@ -3012,6 +3012,11 @@ input[type=button].btn-block {
   border-radius: 0.25rem;
 }
 
+.dropdown-menu .black {
+
+  background-color: #343a40 !important;
+}
+
 .dropdown-menu-left {
   right: auto;
   left: 0;

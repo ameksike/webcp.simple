@@ -10,7 +10,7 @@
  */
 use Ksike\lql\lib\customise\lqls\src\Main as LQL;
 
-class News
+class Docs
 {
     public function __construct(){
         $this->view = ':';
@@ -28,7 +28,6 @@ class News
         );
     }
 
-    
     public function show(){
         $idiom = $this->assist->view->idiom("main"); 
         $this->view = 'dashboard:sb-admin/blank';
@@ -36,8 +35,9 @@ class News
             "active"=>"portfolio",
             "page_title"=> $idiom['docs']['admin']['title'],
             "page_subtitle"=> $idiom['docs']['admin']['subtitle'],
-           // "page_head"=> "",
-            "page_body"=> $this->assist->view->compile('news:sb-admin/list')
+            "page_head"=> $this->assist->view->css('Docs', 'docs'),
+            "page_footer"=> $this->assist->view->js('Docs', 'docs'),
+            "page_body"=> $this->assist->view->compile('docs:sb-admin/list')
         );
     }
 

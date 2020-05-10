@@ -11,7 +11,6 @@
 <?php
     echo $assist->view->include(array(
         "dashboard/src/client/sb-admin/css/styles.css",
-        "main/lib/dataTables/1.10.20/css/dataTables.bootstrap4.min.css",
         "main/lib/font-awesome/5.11.2/js/all.min.js"
     ));
 ?>
