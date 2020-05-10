@@ -5,7 +5,7 @@
             
             <div class="card-body"><span class="fas fa-newspaper"></span> <?php echo $idiom['dashboard']['cards'][0]['title']; ?></div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href="<?php echo $assist->view->url("news/show"); ?>"><?php echo $idiom['dashboard']['card']['details']; ?></a>
+                <a class="small text-white stretched-link" href="<?php echo $assist->view->url("news/backend"); ?>"><?php echo $idiom['dashboard']['card']['details']; ?></a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>

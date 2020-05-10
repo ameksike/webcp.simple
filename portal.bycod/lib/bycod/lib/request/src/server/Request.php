@@ -62,6 +62,7 @@
 			return $argc>1 ? 'cli' : (isset($_SERVER["PATH_INFO"]) ? 'pretty' : (isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'none')  );
 		}
 		protected function jsondecode($value){
+			if(!is_string($value)) return $value;
 			$val = json_decode($value, true);
 			return ($val) ? $val : $value;
 		}

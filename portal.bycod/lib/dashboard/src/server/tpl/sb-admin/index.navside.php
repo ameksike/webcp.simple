@@ -23,7 +23,7 @@
 
             <!-- ITEM 3 -->
             <div class="sb-sidenav-menu-heading"> <?php echo  $idiom['dashboard']['menu'][2]['title']; ?> </div>
-            <a class="nav-link" href="<?php echo $assist->view->url("news/show"); ?>" ><div class="sb-nav-link-icon">
+            <a class="nav-link" href="<?php echo $assist->view->url("news/backend"); ?>" ><div class="sb-nav-link-icon">
                 <i class="fas fa-newspaper"></i></div>
                 <?php echo $idiom['dashboard']['menu'][2]['menu'][0]['title']; ?>
             </a >

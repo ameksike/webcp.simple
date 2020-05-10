@@ -24,7 +24,7 @@
             $idiom = $this->assist->view->idiom("main"); 
             $this->view = 'dashboard:sb-admin/blank';
             return array(
-                "page_title_ico"=>  "fas fa-phone",
+                "page_title_ico"=>  "fas fa-table",
                 "page_title"=> $idiom['portfolio']['admin']['title'],
                 "page_subtitle"=> $idiom['portfolio']['admin']['subtitle'] . ' / '.$idiom['portfolio']['admin']['title'],
                 "page_head"=> $this->assist->view->css('portfolio', 'portfolio'),

@@ -8,131 +8,77 @@
  * @license: GPL v3
  * @require: PHP >= 5.2.*
  */
-use Ksike\lql\lib\customise\lqls\src\Main as LQL;
+
+include __DIR__ . "/model/NewsModel.php";
 
 class News
 {
+    public $model;
+
     public function __construct(){
         $this->view = ':';
     }
 
     public function index(){
         $this->view = 'news:debug/news';
-        $items = $this->get();
+        $this->model = new NewsModel($this->assist->cfg);
+        $items = $this->model->get();
         return array(
             "active"=>"news",
             'limit'=> $items['limit'],
             'offset'=> $items['offset'],
             'total'=> $items['total'],
-            "data"=> $items['list']
+            "data"=> $items['data']
         );
     }
 
-    
-    public function show(){
+    public function get($request=false, $normal=false){
+        if($request['length']) $request['limit'] = $request['length'];
+        if($request['start']) $request['offset'] = $request['start'];
+        $this->view = '';
+        $this->model = new NewsModel($this->assist->cfg);
+        $data = $this->model->get($request, $normal);
+        $data['recordsTotal'] = $data['total']; 
+        $data['recordsFiltered'] = $data['recordsTotal'];
+        $data['length'] = $data['limit'];
+        $data['start'] = $data['offset'];
+        return json_encode($data);
+    }
+
+    public function backend(){
         $idiom = $this->assist->view->idiom("main"); 
         $this->view = 'dashboard:sb-admin/blank';
         return array(
             "active"=>"portfolio",
             "page_title_ico"=>  "fas fa-newspaper",
-            "page_head"=> $this->assist->view->css('News', 'news'),
-            "page_footer"=> $this->assist->view->js('News', 'news'),
+            "page_head"=> $this->assist->view->include(array(
+              //  "main/lib/font-awesome/4.5.0/css/font-awesome.min.css",
+              // "main/lib/jquery/1.10.3/themes/base/jquery.ui.all.css",
+              //  "main/lib/dataTables/1.10.16/css/dataTables.bootstrap.min.css",
+                "news/src/client/css/News.css",
+            )),
+            "page_footer"=> $this->assist->view->include(array(
+                "main/src/client/js/utils.js",
+                "main/lib/dataTables/1.10.20/js/jquery.dataTables.min.js",
+                "main/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",
+                "news/src/client/js/News.js",
+            )),
             "page_title"=>  $idiom['news']['admin']['title'],
             "page_subtitle"=> $idiom['news']['admin']['subtitle'] . ' / ' .  $idiom['news']['admin']['title'],
-           // "page_head"=> "",
             "page_body"=> $this->assist->view->compile('news:sb-admin/list')
         );
     }
 
     public function view($request){
-        $this->view = ':debug/news.view';
-        $items = $this->get($request);
+        $this->view = ':debug/news.view';        
+        $this->model = new NewsModel($this->assist->cfg);
+        $items = $this->model->get($request);
         return array(
             "active"=>"news",
-            "item"=> $items['list'][0]
+            "item"=> $items['data'][0]
         );
     }
     
-    public function last(){
-        $config = $this->assist->cfg;
-        $lst = LQL::create($config['db'])->select('*')->from('article', 'a')->orderBy('a.date', 'DESC')->limit(3)->execute();
-        return $lst;
-    }
-
-    public function get($request=false, $normal=false){
-        $id = !$request ? '' :  isset($request['id']) ? $request['id'] : $request['param'] ;
-        $limit = !$request ? '' :  isset($request['limit']) ? $request['limit'] : 9;
-        $offset = !$request ? '' :  isset($request['offset']) ? $request['offset'] : 0;
-
-        $config = $this->assist->cfg;
-        $qm = LQL::create($config['db'])
-            ->from('article', 'a')
-            ->orderBy('a.date', 'DESC')
-        ;
-        if(!empty($id)){
-            $qm  = $qm->where("id", $id);
-        }else if($normal){
-            $qm  = $qm->where('a.status', 'normal');
-        }
-        
-        $qm  = $qm->limit($limit)->offset($offset);
-
-        $out = $qm->select('*')->execute();
-        $out = !$out ? array() : $out;
-        $total = LQL::create($config['db'])->select('count(id) as total')->from('article', 'a')->execute();
-
-        return array('total'=>$total[0]['total'], 'list'=>$out, 'limit'=>9, 'offset'=>1);
-    }
-
-    public function relevant(){
-        $config = $this->assist->cfg;
-        $rel = LQL::create($config['db'])->select('*')->from('article', 'a')->where('a.status', 'relevant')->orderBy('a.date', 'DESC')->limit(2)->execute();
-        return $rel;
-    }
-
-    public function save($request){
-        $id = isset($request['id']) ? $request['id'] : $request['param'] ;
-        $config = $this->assist->cfg;
-        $obj = $request;
-
-        unset($obj['btnSafe'], $obj['art'], $obj['type']);
-        //$obj['description'] = validate($obj, 'description');
-        //$obj['sumary'] = validate($obj, 'sumary');
-        
-        //file_put_contents(__DIR__."/../../save.log", print_r($obj, true));
-    
-        if($obj['id']!='') {
-            $qm = LQL::create($config['db'])
-                ->update('article')
-                ->set( array_keys($obj), array_values($obj))
-                    //['title', 'sumary', 'description', 'date', 'author', 'imgico',  'imgfront',  'url', 'status'], 
-                    //[$obj['title'],$obj['sumary'],$obj['description'],$obj['date'],$obj['imgico'],$obj['imgfront'],$obj['url'],$obj['status'],$obj['status'],]
-                ->where('id', $obj['id'])
-                ->execute();
-            ;
-        }else{
-            $sql = LQL::create($config['db'])
-                ->insert('article')
-                ->into('title', 'sumary', 'description', 'date', 'author', 'imgico',  'imgfront',  'url', 'status')
-                ->values($obj['title'],$obj['sumary'],$obj['description'],$obj['date'],$obj['author'],$obj['imgico'],$obj['imgfront'],$obj['url'],$obj['status'])
-                ->execute()
-            ;
-        }
-    }
-    
-    public function delete($request){
-        $id = isset($request['id']) ? $request['id'] : $request['param'] ;
-        $config = $this->assist->cfg;
-
-        if(!empty($id)) {
-            $qm = LQL::create($config['db'])
-                ->delete('article')
-                ->where('id', $id)
-                ->execute();
-            ;
-        }
-    }
-
     public function upload(){
         $path = "resource/article/0/" ;
         $exte = array("gif", "jpg", "png");
@@ -151,7 +97,6 @@ class News
                 header("HTTP/1.1 400 Invalid extension,Bad request");
                 return;
             }*/
-            
             $fileName = $path . $temp['name'];
             $route = $this->assist->route("news") ;
             move_uploaded_file($temp['tmp_name'],  $route . $fileName);
