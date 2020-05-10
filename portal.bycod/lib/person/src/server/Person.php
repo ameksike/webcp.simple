@@ -14,12 +14,9 @@
     {
         public function __construct(){
             $this->view = ':';
-
-
         }
 
 		public function index(){
-
             $this->view = 'main:debug/portfolio';
             return array("active"=>"portfolio");
         }
@@ -100,5 +97,11 @@
             }
 
             return $out;
+        }
+
+
+        public function show(){
+            $this->view = 'dashboard:sb-admin/blank';
+            return array("active"=>"portfolio");
         }
 	} 

@@ -27,4 +27,15 @@ $idiom["contact"]['title'] = 'Contact';
 $idiom["about"]['title'] = 'About';
 $idiom["login"]['title'] = 'login';
 
+$idiom['dashboard']['menu'][0]['title'] = "Inicio";
+$idiom['dashboard']['menu'][0]['menu'][0]['title']  = 'Tablero';
+$idiom['dashboard']['menu'][0]['menu'][1]['title']  = 'Portal';
+$idiom['dashboard']['menu'][1]['title'] = "Directorio";
+$idiom['dashboard']['menu'][1]['menu'][0]['title'] = "Personas";
+$idiom['dashboard']['menu'][1]['menu'][1]['title'] = "Telefonos";
+$idiom['dashboard']['menu'][2]['title'] = "Articulos";
+$idiom['dashboard']['menu'][2]['menu'][0]['title'] = "Noticias";
+$idiom['dashboard']['menu'][2]['menu'][1]['title'] = "Documentos";
+$idiom['dashboard']['menu'][3]['title'] = "Herramientas";
+
 return $idiom;
