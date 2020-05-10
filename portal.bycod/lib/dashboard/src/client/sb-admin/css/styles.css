@@ -3012,6 +3012,11 @@ input[type=button].btn-block {
   border-radius: 0.25rem;
 }
 
+.headico{
+  width: 50px;
+  height: 50px;
+}
+
 .dropdown-menu .black {
 
   background-color: #343a40 !important;

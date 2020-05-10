@@ -5,8 +5,9 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <meta name="description" content="<?php echo $idiom['main']['meta']['description'] ?>" />
 <meta name="author" content="<?php echo $idiom['main']['meta']['author'] ?>" />
-
+<link rel="icon"  type="image/svg"  href="<?php echo $assist->view->url("lib/main/src/client/img/logo/logo.icox16.svg"); ?>" />
 <title><?php echo $idiom['main']['app']['title']; ?></title>
+
 
 <?php
     echo $assist->view->include(array(

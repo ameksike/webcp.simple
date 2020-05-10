@@ -1,6 +1,9 @@
 <?php $idiom = $assist->view->idiom("main"); ?>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="<?php echo $assist->view->url("dashboard/index"); ?>"><?php echo $idiom['main']['meta']['company']; ?> </a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
+    <a class="navbar-brand" href="<?php echo $assist->view->url("dashboard/index"); ?>">
+        <img class="headico" type="image/svg"  src="<?php echo $assist->view->url("lib/main/src/client/img/logo/logo.icox16.svg"); ?>" />
+        <?php echo $idiom['main']['meta']['company']; ?> 
+    </a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
     ><!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">

@@ -100,7 +100,7 @@
             return $scrip;
         }
         public function require($files){
-            return $this->includes($files);
+            return $this->include($files);
         }
 
         public function idiom($controller=false){
