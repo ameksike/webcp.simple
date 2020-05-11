@@ -52,12 +52,10 @@ class News
             "active"=>"portfolio",
             "page_title_ico"=>  "fas fa-newspaper",
             "page_head"=> $this->assist->view->include(array(
-              //  "main/lib/font-awesome/4.5.0/css/font-awesome.min.css",
-              // "main/lib/jquery/1.10.3/themes/base/jquery.ui.all.css",
-              //  "main/lib/dataTables/1.10.16/css/dataTables.bootstrap.min.css",
                 "news/src/client/css/News.css",
             )),
             "page_footer"=> $this->assist->view->include(array(
+                "main/idiom/es.js",
                 "main/src/client/js/utils.js",
                 "main/lib/dataTables/1.10.20/js/jquery.dataTables.min.js",
                 "main/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",

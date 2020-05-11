@@ -18,7 +18,7 @@ class Router
 			$this->burl = substr($_SERVER['SCRIPT_NAME'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/')+1);
 		}
 		public function url($access=false, $header=false, $footer=false){
-            $access = $access ? $access : $this->assist->cfg['bycod']['request']['controller'];
+			$access = $access ? $access : $this->assist->cfg['bycod']['request']['controller'];
 			$action = $this->urlAccessType($access);
 			return $this->{$action}($access, $header, $footer);
 		}
@@ -28,7 +28,9 @@ class Router
 			return $protocol."://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
 		}
 		protected function urlAccessType($access){
-			if(preg_match('/\w+\.\w+$/i', $access)) return "urlFile"; 
+			if ($access == '.' || $access == '_' || $access == '' || $access == '__APP__'|| $access == '__GLOBAL__')
+				return "urlProject";
+			else if(preg_match('/\w+\.\w+$/i', $access)) return "urlFile"; 
             else if(preg_match('/\w+\/\w+/i', $access) || preg_match('/\/\w+/i', $access)) return "urlAction";
 			else if($this->assist->route($access)) return "urlModule";
 			else return "urlProject";
@@ -54,5 +56,9 @@ class Router
 		}
         public function urlFile($access, $header=false, $footer=false, $module=false){
 			return $module ? $this->urlClient($module, $header, $footer ) . $access : $this->urlProject($access, $header) . $access ;
-        }
+		}
+		
+		public function path(){
+			return $this->assist->cfg['bycod']['router']['path'];
+		}
 }

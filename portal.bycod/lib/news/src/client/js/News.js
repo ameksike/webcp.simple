@@ -33,7 +33,7 @@ $(document).ready(function() {
                 { "data": "sumary", minWidth: 150, maxWidth: 400 },
 				{ "data": null, minWidth: 20, maxWidth: 20 }
             ],
-            //"language": lan,
+            "language": lan,
             buttons: [ { text: 'Reload table', action: function () { dt.ajax.reload(); } } ],
             "initComplete": function(settings, json) {
                // alert( 'DataTables has finished its initialisation.' );
