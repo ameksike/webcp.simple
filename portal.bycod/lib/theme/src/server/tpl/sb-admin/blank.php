@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php echo $assist->view->compile('theme:sb-admin/index.head'); ?>
+        <?php if(isset($data['page_head'])) echo $data['page_head']; ?>
     </head>
     <body class="sb-nav-fixed">
         <?php echo $assist->view->compile('theme:sb-admin/index.nav'); ?>
@@ -23,7 +24,7 @@
                                 <?php if(isset($data['page_subtitle'])) echo $data['page_subtitle']; ?>
                             </li>
                         </ol>
-                        <?php if(isset($data['page_head'])) echo $data['page_head']; ?>
+                        <?php if(isset($data['page_header'])) echo $data['page_header']; ?>
                     </div>
                 </main>
                 <!-- content_body_page -->

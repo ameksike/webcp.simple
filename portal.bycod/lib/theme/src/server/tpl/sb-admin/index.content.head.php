@@ -1,2 +1,2 @@
-<?php echo $assist->view->compile(':sb-admin/index.card'); ?>
-<?php echo $assist->view->compile(':sb-admin/index.chart'); ?>
+<?php echo $assist->view->compile('theme:sb-admin/index.card'); ?>
+<?php echo $assist->view->compile('theme:sb-admin/index.chart'); ?>
