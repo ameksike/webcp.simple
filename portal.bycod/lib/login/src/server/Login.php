@@ -15,7 +15,7 @@
         }
 
 		public function index(){
-           $this->view = ':debug/login';
+           $this->view = 'theme:debug/login';
            return array("active"=>"login");
 		}
 	} 

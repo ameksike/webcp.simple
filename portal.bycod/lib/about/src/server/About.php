@@ -15,7 +15,7 @@
         }
 
 		public function index(){
-           $this->view = ':debug/about';
+           $this->view = 'theme:debug/about';
            return array("active"=>"about");
 		}
 	} 

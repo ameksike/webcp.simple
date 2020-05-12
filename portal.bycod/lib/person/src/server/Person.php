@@ -17,13 +17,13 @@
         }
 
 		public function index(){
-            $this->view = 'main:debug/portfolio';
+            $this->view = 'theme:debug/portfolio';
             return array("active"=>"portfolio");
         }
 
         public function show(){
-            $idiom = $this->assist->view->idiom("main");
-            $this->view = 'dashboard:sb-admin/blank';
+            $idiom = $this->assist->view->idiom("theme");
+            $this->view = 'theme:sb-admin/blank';
             return array(
                 "active"=>"portfolio",
                 "page_title_ico"=>  "fas fa-user",
@@ -33,10 +33,10 @@
                     "person/src/client/css/Person.css",
                 )),
                 "page_footer"=> $this->assist->view->include(array(
-                    "main/idiom/es.js",
-                    "main/src/client/js/utils.js",
-                    "main/lib/dataTables/1.10.20/js/jquery.dataTables.min.js",
-                    "main/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",
+                    "theme/idiom/es.js",
+                    "theme/src/client/js/utils.js",
+                    "theme/lib/dataTables/1.10.20/js/jquery.dataTables.min.js",
+                    "theme/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",
                     "person/src/client/js/Person.js",
                 )),
                 "page_body"=> $this->assist->view->compile('person:sb-admin/list')

@@ -46,8 +46,8 @@ class News
     }
 
     public function backend(){
-        $idiom = $this->assist->view->idiom("main"); 
-        $this->view = 'dashboard:sb-admin/blank';
+        $idiom = $this->assist->view->idiom("theme"); 
+        $this->view = 'theme:sb-admin/blank';
         return array(
             "active"=>"portfolio",
             "page_title_ico"=>  "fas fa-newspaper",
@@ -57,8 +57,8 @@ class News
             "page_footer"=> $this->assist->view->include(array(
                 "main/idiom/es.js",
                 "main/src/client/js/utils.js",
-                "main/lib/dataTables/1.10.20/js/jquery.dataTables.min.js",
-                "main/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",
+                "theme/lib/dataTables/1.10.20/js/jquery.dataTables.min.js",
+                "theme/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",
                 "news/src/client/js/News.js",
             )),
             "page_title"=>  $idiom['news']['admin']['title'],

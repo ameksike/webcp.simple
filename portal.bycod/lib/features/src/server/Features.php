@@ -15,7 +15,7 @@
         }
 
 		public function index(){
-           $this->view = ':debug/features';
+           $this->view = 'theme:debug/features';
            return array("active"=>"features");
 		}
 	} 

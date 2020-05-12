@@ -1,4 +1,4 @@
-<?php $idiom = $assist->view->idiom("main"); ?>
+<?php $idiom = $assist->view->idiom("theme"); ?>
 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
     <div class="portfolio-one"> 
         
@@ -18,7 +18,7 @@
             
             <div class="portfolio-img">
                 <img alt="" src="<?php 
-                    $imgico = !empty($data['item']['imgico']) ? 'lib/news/'.$data['item']['imgico'] : "lib/main/src/client/img/1.jpg";
+                    $imgico = !empty($data['item']['imgico']) ? 'lib/news/'.$data['item']['imgico'] : "lib/theme/src/client/tpl/debug/img/1.jpg";
                     echo $assist->view->url($imgico);
                 ?>">
             </div>

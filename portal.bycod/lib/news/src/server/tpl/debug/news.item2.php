@@ -10,7 +10,7 @@
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
         <img alt="" src="<?php 
-            $imgico = !empty($data['item']['imgico']) ? 'lib/news/'.$data['item']['imgico'] : "lib/main/src/client/img/1.jpg";
+            $imgico = !empty($data['item']['imgico']) ? 'lib/news/'.$data['item']['imgico'] : "lib/theme/src/client/tpl/debug/img/1.jpg";
             echo $assist->view->url($imgico);
             // echo $assist->view->url("lib/news/". $data['item']['imgico']);
         ?>">

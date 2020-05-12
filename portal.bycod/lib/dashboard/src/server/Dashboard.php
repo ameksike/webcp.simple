@@ -15,8 +15,8 @@
         }
 
 		public function index(){
-        $idiom = $this->assist->view->idiom("main"); 
-           $this->view = ':sb-admin/index';
+        $idiom = $this->assist->view->idiom("theme"); 
+           $this->view = 'theme:sb-admin/index';
            return array(
                "page_title"=> $idiom['dashboard']['conditions']['title'],
                "page_subtitle"=> $idiom['dashboard']['conditions']['subtitle']
@@ -24,8 +24,8 @@
         }
         
         public function privacy(){
-            $idiom = $this->assist->view->idiom("main"); 
-            $this->view = 'dashboard:sb-admin/blank';
+            $idiom = $this->assist->view->idiom("theme"); 
+            $this->view = 'theme:sb-admin/blank';
             return array(
                 "active"=>"portfolio",
                 "page_title"=> $idiom['dashboard']['privacy']['title'],
@@ -35,8 +35,8 @@
         }
 
         public function conditions(){
-            $idiom = $this->assist->view->idiom("main"); 
-            $this->view = 'dashboard:sb-admin/blank';
+            $idiom = $this->assist->view->idiom("theme"); 
+            $this->view = 'theme:sb-admin/blank';
             return array(
                 "active"=>"portfolio",
                 "page_title"=> $idiom['dashboard']['conditions']['title'],

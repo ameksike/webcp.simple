@@ -15,14 +15,14 @@
         }
 
 		public function index(){
-            $this->view = ':debug/portfolio';
+            $this->view = 'theme:debug/portfolio';
             return array("active"=>"portfolio");
         }
         
         
         public function show(){
-            $idiom = $this->assist->view->idiom("main"); 
-            $this->view = 'dashboard:sb-admin/blank';
+            $idiom = $this->assist->view->idiom("theme"); 
+            $this->view = 'theme:sb-admin/blank';
             return array(
                 "page_title_ico"=>  "fas fa-table",
                 "page_title"=> $idiom['portfolio']['admin']['title'],

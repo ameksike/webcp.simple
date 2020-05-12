@@ -17,7 +17,7 @@ class Store
     }
 
     public function index(){
-        $this->view = 'main:debug/news';
+        $this->view = 'theme:debug/news';
         return array(
             "active"=>"news"
         );

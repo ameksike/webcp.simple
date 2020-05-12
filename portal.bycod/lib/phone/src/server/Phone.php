@@ -29,8 +29,8 @@ class Phone
     }
 
     public function show(){
-        $idiom = $this->assist->view->idiom("main"); 
-        $this->view = 'dashboard:sb-admin/blank';
+        $idiom = $this->assist->view->idiom("theme"); 
+        $this->view = 'theme:sb-admin/blank';
         return array(
             "active"=>"portfolio",
             "page_title_ico"=>  "fas fa-phone",

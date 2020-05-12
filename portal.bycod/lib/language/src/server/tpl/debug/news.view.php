@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <?php $idiom = $assist->view->idiom("main"); ?>
+    <?php $idiom = $assist->view->idiom("theme"); ?>
     <head>
         <?php 
-            echo $assist->view->compile('main:debug/index.head'); 
+            echo $assist->view->compile('theme:debug/index.head'); 
             echo $assist->view->include("news/src/client/css/view.css");
         ?>
     </head>
     <body id="wrapper">
-        <?php $idiom = $assist->view->idiom("main"); ?>
-        <?php echo $assist->view->compile('main:debug/index.header'); ?>
+        <?php $idiom = $assist->view->idiom("theme"); ?>
+        <?php echo $assist->view->compile('theme:debug/index.header'); ?>
 
         <section id="top_banner">
             <div class="page_info">
@@ -34,7 +34,7 @@
             <div class="container">
                 <div class="row">
                     <img class="news_img" src="<?php 
-                        $imgico = !empty($data['item']['imgico']) ? 'lib/news/'.$data['item']['imgico'] : "lib/main/src/client/img/1.jpg";
+                        $imgico = !empty($data['item']['imgico']) ? 'lib/news/'.$data['item']['imgico'] : "lib/theme/src/client/tpl/debug/img/1.jpg";
                         echo $assist->view->url($imgico);
                         ?>"  width="50%"></a>	
 
@@ -55,6 +55,6 @@
                 </div>
         </section>
 
-        <?php echo $assist->view->compile('main:debug/index.footer'); ?>
+        <?php echo $assist->view->compile('theme:debug/index.footer'); ?>
     </body>
 </html>

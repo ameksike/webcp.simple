@@ -15,7 +15,7 @@
         }
 
 		public function index(){
-           $this->view = ':debug/contact';
+           $this->view = 'theme:debug/contact';
            return array("active"=>"contact");
 		}
 	} 

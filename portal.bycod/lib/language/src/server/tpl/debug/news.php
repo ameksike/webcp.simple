@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php $idiom = $assist->view->idiom("main"); ?>
+        <?php $idiom = $assist->view->idiom("theme"); ?>
         <?php 
-            echo $assist->view->compile('main:debug/index.head'); 
+            echo $assist->view->compile('theme:debug/index.head'); 
             echo $assist->view->include("news/src/client/css/news.css");
         ?>
 
     </head>
     <body id="wrapper">
 
-        <?php echo $assist->view->compile('main:debug/index.header'); ?>
+        <?php echo $assist->view->compile('theme:debug/index.header'); ?>
 
         <section id="top_banner">
             <div class="banner">
@@ -63,6 +63,6 @@
   
         </section>
 
-        <?php echo $assist->view->compile('main:debug/index.footer'); ?>
+        <?php echo $assist->view->compile('theme:debug/index.footer'); ?>
     </body>
 </html>
