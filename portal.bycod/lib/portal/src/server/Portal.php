@@ -17,6 +17,7 @@
         public function getDesign(){
             $design = include $this->assist->route("portal")."/cfg/design.php";
             $design["active"] = "main";
+            $design["company"] = $this->assist->cfg['company'];
             return $design;
         }
 

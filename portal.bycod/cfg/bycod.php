@@ -27,7 +27,7 @@
     $config['bycod']['porter']['role'] = "guest";
     $config['bycod']['role']['acl'] = "default";
 
-    $config['bycod']['request']['controller'] = "main";
+    $config['bycod']['request']['controller'] = "portal";
     $config['bycod']['request']['action'] = "index";
 
     $config['bycod']['loader']['Ksike'] =  __DIR__ .'/../lib/bycod/lib/';

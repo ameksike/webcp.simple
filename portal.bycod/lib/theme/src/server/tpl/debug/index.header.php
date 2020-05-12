@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-md-7 col-sm-7 col-xs-7 top-header-links">
                 <ul class="contact_links">
-                    <li><i class="fa fa-phone"></i><a href="#">+91 848 594 5080</a></li>
-                    <li><i class="fa fa-envelope"></i><a href="#">sales@aspiresoftware.in</a></li>
+                    <li><i class="fa fa-phone"></i><a href="#"><?php if(isset($data['company']["phone"])) echo $data['company']["phone"]; ?></a></li>
+                    <li><i class="fa fa-envelope"></i><a href="#"><?php if(isset($data['company']["email"])) echo $data['company']["email"]; ?></a></li>
                 </ul>
             </div>
             <div class="col-md-5 col-sm-5 col-xs-5 social">

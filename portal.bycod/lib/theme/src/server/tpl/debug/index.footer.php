@@ -60,7 +60,7 @@
                     <a href="#">Copyright © 2019</a>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12 copyright">
-                     Developed and Designed by <a href="#">Ksike Develop Team</a> (KSDT)</a>
+                     Developed and Designed by <a href="https://ameksike.github.io/">Ksike Develop Team</a> (KSDT)</a>
                 </div>
             </div>
         </div>

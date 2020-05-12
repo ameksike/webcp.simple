@@ -6,14 +6,14 @@
 	$config["mail"]["host"]		= "srq-cc.com"; 		//... servidor o proveedor de correo
 	$config["mail"]["username"]	= "reservastucita";		//... campo de usuario de una cuenta activa en el servidor de correo
 	$config["mail"]["password"]	= "010414";				
+	$config["mail"]["phone"]	= "+53 52124535";	
 	$config["mail"]["from"]		= "admin.red@cfg.labiofam.cu";	
 	$config["mail"]["fromname"]	= "Administrador";				//... alias o sobre nombre para el que emite el correo
 	$config["mail"]["driver"]	= "mail";
 
     $config['db']["log"]		= "log/";
     $config['db']["driver"]	 	= "sqlite";					        //... valores admitidos: pgsql|mysql|mysqli|sqlite|sqlsrv
-    $config['db']["name"]		= "storage";		              		//... nombre de la base de datos a la cual debe conectarse
-    $config['db']["path"]		= __DIR__ . "/../../dashboard/data/db/";	  
+    $config['db']["name"]		= "storage";		              	//... nombre de la base de datos a la cual debe conectarse  
     $config['db']["path"]		= __DIR__ . "/../data/db/";	  		//... ruta donde se encuentra la base de datos
     $config['db']["extension"]  = "db";						        //... default value db
 
@@ -22,8 +22,10 @@
     $config['media']['imp'][] = "labiofam/20190513-Consejo";
     $config['media']['tips']['total'] = 114;
 
-    $config['company']['field']  = "p.role";
+    $config['company']['field'] = "p.role";
     $config['company']['role']  = "user";
+	$config["company"]["phone"]	= "+53 52124535";
+	$config["company"]["email"]	= "admin.red@cfg.labiofam.cu";
 
     $config['ftp']['server'] = 'ftp.cfg.labiofam.cu';
     $config['ftp']['deep'] = '5';
