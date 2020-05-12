@@ -20,7 +20,7 @@ class News
     }
 
     public function index(){
-        $this->view = 'news:debug/news';
+        $this->view = 'theme:debug/news';
         $this->model = new NewsModel($this->assist->cfg);
         $items = $this->model->get();
         return array(
@@ -68,7 +68,7 @@ class News
     }
 
     public function view($request){
-        $this->view = ':debug/news.view';        
+        $this->view = 'theme:debug/news.view';        
         $this->model = new NewsModel($this->assist->cfg);
         $items = $this->model->get($request);
         return array(

@@ -16,18 +16,6 @@ class language
         $this->view = ':';
     }
 
-    public function index(){
-        $this->view = 'news:debug/news';
-        $items = $this->get();
-        return array(
-            "active"=>"news",
-            'limit'=> $items['limit'],
-            'offset'=> $items['offset'],
-            'total'=> $items['total'],
-            "data"=> $items['list']
-        );
-    }
-
     public function show(){
         $idiom = $this->assist->view->idiom("theme"); 
         $this->view = 'theme:sb-admin/blank';

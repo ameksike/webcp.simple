@@ -50,9 +50,9 @@
                         $list = $data['data'];
                         $total = count($list);
                         for($i = 0; $i<$total; $i=$i+3){   
-                            if(isset($list[$i]))   echo $assist->view->compile('news:debug/news.item', array( 'item'=>$list[$i]) );
-                            if(isset($list[$i+1])) echo $assist->view->compile('news:debug/news.item', array( 'item'=>$list[$i+1]) );
-                            if(isset($list[$i+2])) echo $assist->view->compile('news:debug/news.item', array( 'item'=>$list[$i+2]) );
+                            if(isset($list[$i]))   echo $assist->view->compile('theme:debug/news.item', array( 'item'=>$list[$i]) );
+                            if(isset($list[$i+1])) echo $assist->view->compile('theme:debug/news.item', array( 'item'=>$list[$i+1]) );
+                            if(isset($list[$i+2])) echo $assist->view->compile('theme:debug/news.item', array( 'item'=>$list[$i+2]) );
                         }
                         
                     ?>

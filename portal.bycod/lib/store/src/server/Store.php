@@ -24,7 +24,7 @@ class Store
     }
 
     public function load($request){
-        
+       /* 
         $key = '';
         if(isset($_REQUEST['search']['value']))
             $key = $_REQUEST['search']['value'];
@@ -39,7 +39,7 @@ class Store
             "draw"            => $_REQUEST['draw'],
             "recordsFiltered" => $tot,
             "recordsTotal"    => $tot,
-        );
+        );*/
     }
     
 } 

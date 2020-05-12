@@ -17,7 +17,7 @@ class Phone
     }
 
     public function index(){
-        $this->view = 'news:debug/news';
+        $this->view = 'theme:debug/news';
         $items = $this->get();
         return array(
             "active"=>"news",
