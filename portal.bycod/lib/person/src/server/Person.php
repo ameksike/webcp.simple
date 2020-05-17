@@ -65,44 +65,24 @@
         }
 
         public function meta($request){
+            $this->view = 'person:sb-admin/meta';
+            return $this->metadata($request);
+        }
+
+        public function metadata($request){
             $request['id'] = isset($request['id']) ? $request['id'] : $request['param'];
-            
             $this->model = new PersonModel($this->assist->cfg);
             $out = $this->model->meta($request);
-
-            if(isset($out["person"])){
-                $out["person"][0]['avatar'] = "data/user/". strtolower($out["person"][0]['company'])."/". strtolower($out["person"][0]['user']) . ".jpg";
-                if(!file_exists(__DIR__ . "/../"  . $out["person"][0]['avatar']))
-                    $out["person"][0]['avatar'] = "data/user/user_".$out["person"][0]['sex'].".svg";
-    
-                $out["person"][0]['company'] =  $out["person"][0]['company'] == 'Other' ? "" : $out["person"][0]['company'];
-                $out["person"][0]['domain']  =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['domain'] ;
-                $out["person"][0]['email']   =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['user'] . "@" . $out["person"][0]['domain'] ;
-                $out["person"][0]['chat']    =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['user'] . "@jabber." . $out["person"][0]['domain'] ;
-                $out["person"][0]['place']   =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['place'] ;
-                $out["person"][0]['user']    =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['user'] ;
-
-            }
-            return json_encode($out, true) ;
+            $out["person"] = $this->formatPerson($out["person"][0]) ;
+            return $out;
         }
+
         private function formatList($data){
             $out = $data['data'];
             $url = $this->assist->router->url(".");  
             $path =  $this->assist->router->path();
-            foreach ($out as $k=>$i){
-                $out[$k]['avatar'] =  "/data/user/".strtolower($i['company'])."/". strtolower($i['user']) . ".jpg";
-                if(!file_exists($path . $out[$k]['avatar'])){
-                    $out[$k]['avatar'] = $url. "data/user/user_".$i['sex'].".svg";
-                }
-                else{
-                    $out[$k]['avatar'] = $url. $out[$k]['avatar'];
-                }
-                $out[$k]['sex'] = ($i['sex'] == "F") ? "Femenino" : "Masculino";
-                $out[$k]['company'] =  $out[$k]['company'] == 'Other' ? "" : $out[$k]['company'];
-                $out[$k]['domain']  =  ($out[$k]['company'] === "") ? "" : $i['domain'] ;
-                $out[$k]['email']   =  ($out[$k]['company'] === "") ? "" : $i['user'] . "@" . $i['domain'] ;
-                $out[$k]['place']   =  ($out[$k]['company'] === "") ? "" : $i['place'] ;
-                $out[$k]['user']    =  ($out[$k]['company'] === "") ? "" : $i['user'] ;
+            foreach ($out as $k=>$i){          
+                $out[$k] = $this->formatPerson($i) ;
             }
             $data['data'] = $out;
             $data['recordsTotal'] = $data['total']; 
@@ -111,4 +91,27 @@
             $data['start'] = $data['offset'];
             return $data;
         }
+
+        private function formatPerson($person){
+            $url = $this->assist->router->url(".");   
+            $path =  $this->assist->router->path();
+
+            $person['avatar'] =  "/data/user/".strtolower($person['company'])."/". strtolower($person['user']) . ".jpg";
+            if(!file_exists($path . $person['avatar'])){
+                $person['avatar'] = $url. "data/user/user_".$person['sex'].".svg";
+            }
+            else{
+                $person['avatar'] = $url.$person['avatar'];
+            }
+
+            $person['sex'] = ($person['sex'] == "F") ? "Femenino" : "Masculino";
+            $person['company'] =  $person['company'] == 'Other' ? "" : $person['company'];
+            $person['domain']  =  ($person['company'] === "") ? "" : $person['domain'] ;
+            $person['email']   =  ($person['company'] === "") ? "" : $person['user'] . "@" . $person['domain'] ;
+            $person['chat']   =    ($person['company'] === "") ? "" : $person['user'] . "@" . $person['domain'] ;
+            $person['place']   =  ($person['company'] === "") ? "" : $person['place'] ;
+            $person['user']    =  ($person['company'] === "") ? "" : $person['user'] ;
+
+            return $person;
+        } 
 	} 
