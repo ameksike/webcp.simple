@@ -11,6 +11,7 @@
 
 <?php
     echo $assist->view->include(array(
+        "bycod/lib/router/src/client/js/Router.js",
         "theme/lib/font-awesome/4.5.0/css/font-awesome.min.css",
         "theme/src/client/tpl/debug/scss/skin.css",
         "theme/src/client/tpl/debug/scss/main.css",

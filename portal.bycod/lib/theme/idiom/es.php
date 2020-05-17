@@ -32,6 +32,17 @@ $idiom['news']['footer1'] = 'En esta sección podrás estar al tanto de nuestras
 $idiom['news']['admin']['subtitle'] = 'Articulos';
 $idiom['news']['admin']['title'] = 'Noticias';
 
+$idiom['news']['form']['title'] = 'Titulo';
+$idiom['news']['form']['date'] = 'Fecha';
+$idiom['news']['form']['author'] = 'Autor';
+$idiom['news']['form']['category'] = 'Categoría';
+$idiom['news']['form']['Icon'] = 'Icono';
+$idiom['news']['form']['cover'] = 'Portada';
+$idiom['news']['form']['sumary'] = 'Preámbulo';
+$idiom['news']['form']['description'] = 'Descripción extendida';
+$idiom['news']['form']['btn'] = 'Salvar';
+
+
 $idiom['docs']['admin']['subtitle'] = 'Articulos';
 $idiom['docs']['admin']['title'] = 'Documentos';
 

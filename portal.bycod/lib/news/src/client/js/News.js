@@ -19,9 +19,9 @@ $(document).ready(function() {
 				{
                     "searchable": false,
                     "render": function ( data, type, row ) {
-						var btn_edit = '<a href="' + urlpath() + "save/" +row['id'] + '">' + '<span class="fa fa-pencil"> </span>  ' +'</a>';
-						var btn_dele = '<a id="'+row['id']+'" href="' + urlpath() + "delete/" +row['id'] + '&act=del">' + '<span class="fa fa-trash-o"> </span>  ' +'</a>';
-						var btn_view = '<a href="' + urlpath() + "view/" +row['id'] + '">' + '<span class="fa fa-eye"> </span>  ' +'</a>';
+						var btn_edit = '<a href="' + urlpath() + "edit/" +row['id'] + '">' + ' <span class="fas fa-edit"> </span>  ' +'</a>';
+						var btn_dele = '<a id="'+row['id']+'" href="' + urlpath() + "delete/" +row['id'] + '">' + ' <span class="fas fa-trash"> </span>  ' +'</a>';
+						var btn_view = '<a href="' + urlpath() + "view/" +row['id'] + '">' + ' <span class="fas fa-eye"> </span>  ' +'</a>';
                         return  '<div class="act">' + btn_view + btn_edit + btn_dele + '</div>';
                     },
                     "targets": 3

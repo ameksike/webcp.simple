@@ -42,9 +42,9 @@ class NewsModel
 
         $out = $qm->select('*')->execute();
         $out = !$out ? array() : $out;
-        $total = LQL::create($this->config['db'])->select('count(id) as total')->from('article', 'a')->execute();
+        $total = empty($id) ? $this->total() : 1;
 
-        return array('total'=>$total[0]['total'], 'data'=>$out, 'limit'=>$limit, 'offset'=>$offset  );
+        return array('total'=>$total, 'data'=>$out, 'limit'=>$limit, 'offset'=>$offset  );
     }
 
     public function relevant(){
@@ -52,18 +52,15 @@ class NewsModel
         $rel = LQL::create($this->config['db'])->select('*')->from('article', 'a')->where('a.status', 'relevant')->orderBy('a.date', 'DESC')->limit(2)->execute();
         return $rel;
     }
-
+    public function total(){
+        $total = LQL::create($this->config['db'])->select('count(id) as total')->from('article', 'a')->execute();
+        return $total[0]['total'];
+    }
     public function save($request){
         $id = isset($request['id']) ? $request['id'] : $request['param'] ;
-        
         $obj = $request;
-
         unset($obj['btnSafe'], $obj['art'], $obj['type']);
-        //$obj['description'] = validate($obj, 'description');
-        //$obj['sumary'] = validate($obj, 'sumary');
-        
-        //file_put_contents(__DIR__."/../../save.log", print_r($obj, true));
-    
+
         if($obj['id']!='') {
             $qm = LQL::create($this->config['db'])
                 ->update('article')
@@ -86,7 +83,6 @@ class NewsModel
     public function delete($request){
         $id = isset($request['id']) ? $request['id'] : $request['param'] ;
         
-
         if(!empty($id)) {
             $qm = LQL::create($this->config['db'])
                 ->delete('article')
@@ -94,6 +90,19 @@ class NewsModel
                 ->execute();
             ;
         }
+    }
+
+    public function  empty(){
+        return [
+            'title'=> '',
+            'date'=> '',
+            'author'=>'',
+            'status'=> true,
+            'imgico'=> '',
+            'imgfront'=> '',
+            'sumary'=> '',
+            'description'=> ''
+        ];
     }
 
 } 

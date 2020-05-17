@@ -32,9 +32,54 @@ class News
         );
     }
 
+    public function delete(){
+        $this->model = new NewsModel($this->assist->cfg);
+       
+        return $this->backend();
+    }
+
+    public function fixUrl($data){
+
+        $data["imgico"] = str_ireplace("resource/article/", $this->assist->router->urlModule("news") . "resource/article/", $data["imgico"]);
+        $data["imgfront"] = str_ireplace("resource/article/", $this->assist->router->urlModule("news")  . "resource/article/", $data["imgfront"]);
+        $data["sumary"] = str_ireplace("resource/article/", $this->assist->router->urlModule("news")  . "resource/article/", $data["sumary"]);
+        $data["description"] = str_ireplace("resource/article/", $this->assist->router->urlModule("news") . "resource/article/" , $data["description"]);
+        return $data;
+    }
+
+    public function edit($request){
+        $idiom = $this->assist->view->idiom("theme"); 
+        $this->view = 'theme:sb-admin/blank';
+
+        $this->model = new NewsModel($this->assist->cfg);
+        $data = $this->model->get($request);
+        $data = isset($data['data'][0]) ? $data['data'][0] : $this->model->empty();
+        $data = $this->fixUrl($data);
+
+        return array(
+            "active"=>"portfolio",
+            "page_title_ico"=>  "fas fa-newspaper",
+            "page_head" => $this->assist->view->include(array(
+                "news/src/client/css/Edit.css",
+            )),
+            "page_footer"=> $this->assist->view->include(array(
+                "theme/idiom/es.js",
+                "theme/src/client/js/utils.js",
+                "theme/lib/img/imgloader.js",
+                "theme/lib/tinymce/jquery.tinymce.min.js",
+                "theme/lib/tinymce/tinymce.min.js",
+                "news/src/client/js/Edit.js",
+                "news/src/client/js/Edit.js",
+            )),
+            "page_title"=>  $idiom['news']['admin']['title'],
+            "page_subtitle"=> $idiom['news']['admin']['subtitle'] . ' / ' .  $idiom['news']['admin']['title'],
+            "page_body"=> $this->assist->view->compile('news:sb-admin/form', ['model'=>$data] )
+        );
+    }
+
     public function get($request=false, $normal=false){
-        if($request['length']) $request['limit'] = $request['length'];
-        if($request['start']) $request['offset'] = $request['start'];
+        if(isset($request['length'])) $request['limit'] = $request['length'];
+        if(isset($request['start'])) $request['offset'] = $request['start'];
         $this->view = '';
         $this->model = new NewsModel($this->assist->cfg);
         $data = $this->model->get($request, $normal);
@@ -55,8 +100,8 @@ class News
                 "news/src/client/css/News.css",
             )),
             "page_footer"=> $this->assist->view->include(array(
-                "main/idiom/es.js",
-                "main/src/client/js/utils.js",
+                "theme/idiom/es.js",
+                "theme/src/client/js/utils.js",
                 "theme/lib/dataTables/1.10.20/js/jquery.dataTables.min.js",
                 "theme/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",
                 "news/src/client/js/News.js",
@@ -78,26 +123,23 @@ class News
     }
     
     public function upload(){
-        $path = "resource/article/0/" ;
-        $exte = array("gif", "jpg", "png");
+        $path = "/resource/article/0/" ;
 
-        reset($_FILES);
-        $temp = current($_FILES);
-        $fileName = "";
-
-        if(is_uploaded_file($temp['tmp_name']))
-        {
-            /*if(preg_match("/([^\w\s\d\-_~,;:\[\]\(\).])|([\.]{2,})/", $temp['name'])){
-                header("HTTP/1.1 400 Invalid file name,Bad request");
-                return;
+        try{
+            reset($_FILES);
+            $temp = current($_FILES);
+            $fileName = "";
+    
+            if(is_uploaded_file($temp['tmp_name']))
+            {
+                $fileName = $path . $temp['name'];
+                $route = $this->assist->route("news") ;
+                move_uploaded_file($temp['tmp_name'],  $route . $fileName);
             }
-            if(!in_array(strtolower(pathinfo($temp['name'], PATHINFO_EXTENSION)), $exte)){
-                header("HTTP/1.1 400 Invalid extension,Bad request");
-                return;
-            }*/
-            $fileName = $path . $temp['name'];
-            $route = $this->assist->route("news") ;
-            move_uploaded_file($temp['tmp_name'],  $route . $fileName);
         }
+        catch (\Exception $e){
+            return false;
+        }
+        return $this->assist->view->url("lib/news". $fileName) ;
     }
 } 

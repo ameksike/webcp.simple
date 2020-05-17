@@ -10,6 +10,7 @@
 
 <?php
     echo $assist->view->include(array(
+        "bycod/lib/router/src/client/js/Router.js",
         ///"theme/lib/bootstrap/4.4.1/theme/bootstrap.min.materia.css",
         "theme/src/client/tpl/sb-admin/css/styles.css",
         "theme/lib/font-awesome/5.11.2/js/all.min.js"
