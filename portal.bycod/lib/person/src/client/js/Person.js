@@ -12,6 +12,15 @@ $(document).ready(function() {
                     },
                     "targets": 1
                 },{
+                    "searchable": false,
+                    "render": function ( data, type, row ) {
+						var btn_edit = '<a href="' + Bycod.router.action("person/edit/"+row['id'])  + '">' + ' <span class="fas fa-edit"> </span>  ' +'</a>';
+						var btn_dele = '<a id="'+row['id']+'" href="' +  Bycod.router.action("person/delete/"+row['id'])  + '">' + ' <span class="fas fa-trash"> </span>  ' +'</a>';
+						var btn_view = '<a href="' +Bycod.router.action("person/view/"+row['id'])  + '">' + ' <span class="fas fa-eye"> </span>  ' +'</a>';
+                        return  '<div class="act">' + btn_view + btn_edit + btn_dele + '</div>';
+                    },
+                    "targets": 8
+                },{
                     "targets": 9, "visible": false, "searchable": true
                 },{
                     "targets": 10, "visible": false, "searchable": true

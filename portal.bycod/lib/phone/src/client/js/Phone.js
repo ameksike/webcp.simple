@@ -19,9 +19,19 @@ $(document).ready(function() {
                     },
                     "targets": 0
                 },{
-                    "targets": [ 11 ],
+                    "targets": [ 9 ],
                     "visible": false,
                     "searchable": true
+                },
+				{
+                    "searchable": false,
+                    "render": function ( data, type, row ) {
+						var btn_edit = '<a href="' + Bycod.router.action("phone/edit/"+row['id'])  + '">' + ' <span class="fas fa-edit"> </span>  ' +'</a>';
+						var btn_dele = '<a id="'+row['id']+'" href="' +  Bycod.router.action("phone/delete/"+row['id'])  + '">' + ' <span class="fas fa-trash"> </span>  ' +'</a>';
+						var btn_view = '<a href="' +Bycod.router.action("phone/view/"+row['id'])  + '">' + ' <span class="fas fa-eye"> </span>  ' +'</a>';
+                        return  '<div class="act">' + btn_view + btn_edit + btn_dele + '</div>';
+                    },
+                    "targets": 8
                 }
             ],
             "columns": [
@@ -30,9 +40,7 @@ $(document).ready(function() {
                 { "data": "value" },
                 { "data": "extension" },
                 { "data": "note" },
-                { "data": "class" },
                 { "data": "company" },
-                { "data": "contry" },
                 { "data": "city" },
                 { "data": "locale" },
                 { "data": "addrees" },

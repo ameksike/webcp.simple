@@ -165,12 +165,14 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #007bff; 
+  /*color: #0056b3;*/
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #0056b3;
+  /*color: #ff0;*/
+  color: #ffc107;
   text-decoration: underline;
 }
 
@@ -434,7 +436,7 @@ hr {
 
 small,
 .small {
-  font-size: 80%;
+  font-size: 98%;
   font-weight: 400;
 }
 

@@ -48,6 +48,17 @@ $idiom['docs']['admin']['title'] = 'Documentos';
 
 $idiom['phone']['admin']['subtitle'] = 'Directorio';
 $idiom['phone']['admin']['title'] = 'Telefonos';
+$idiom['phone']['form']["ico"] = "Icono";
+$idiom['phone']['form']["title"] = "Denominación";
+$idiom['phone']['form']["value"] = "Número";
+$idiom['phone']['form']["extension"] = "Extensión";
+$idiom['phone']['form']["note"] = "Notas";
+$idiom['phone']['form']["company"] = "Compañia";
+$idiom['phone']['form']["city"] = "Ciudad";
+$idiom['phone']['form']["locale"] = "Localidad";
+$idiom['phone']['form']["addrees"] = "Dirección";
+$idiom['phone']['form']["type"] = "Tipo";
+$idiom['phone']['form']["action"] = "Acciones";
 
 $idiom['person']['admin']['subtitle'] = 'Directorio';
 $idiom['person']['admin']['title'] = 'Personas';
