@@ -10,6 +10,12 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0.2em 0.2em !important;	
+  margin-left: -2.5px !important;	
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;

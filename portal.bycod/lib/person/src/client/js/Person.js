@@ -3,7 +3,7 @@ $(document).ready(function() {
             "scrollX": true,
             "serverSide": true,
             "pagingType": "full_numbers",
-            "ajax": "list",
+            "ajax": Bycod.router.action("person/list"),
             "stateSave": true,   
             "columnDefs": [
                 {
@@ -59,7 +59,6 @@ $(document).ready(function() {
                         tr.addClass('shown');
                     }
                 });
-
             }
         } );
 

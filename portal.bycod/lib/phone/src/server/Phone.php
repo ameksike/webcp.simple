@@ -9,6 +9,7 @@
  * @require: PHP >= 5.2.*
  */
 use Ksike\lql\lib\customise\lqls\src\Main as LQL;
+include __DIR__ . "/model/PhoneModel.php";
 
 class Phone
 {
@@ -36,10 +37,42 @@ class Phone
             "page_title_ico"=>  "fas fa-phone",
             "page_title"=> $idiom['phone']['admin']['title'],
             "page_subtitle"=> $idiom['phone']['admin']['subtitle'] . ' / '. $idiom['phone']['admin']['title'],
-            "page_head"=> $this->assist->view->css('Phone', 'phone'),
+            "page_head"=> $this->assist->view->include(array(
+                "theme/lib/dataTables/1.10.16/css/jquery.dataTables.min.css",
+                "phone/src/client/css/Phone.css",
+            )),
             "page_footer"=> $this->assist->view->js('Phone', 'phone'),
+            "page_footer"=> $this->assist->view->include(array(
+                "theme/idiom/es.js",
+                "theme/src/client/js/utils.js",
+                "theme/lib/jquery/1.9.1/jquery.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.core.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.widget.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.mouse.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.draggable.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.position.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.resizable.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.button.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.dialog.js",
+                "theme/lib/dataTables/1.10.16/js/jquery.dataTables.min.js" ,
+                "theme/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",
+                "phone/src/client/js/Phone.js",
+            )),
             "page_body"=> $this->assist->view->compile('phone:sb-admin/list')
         );
+    }
+
+    public function list($request){        
+        if(isset($request['length'])) $request['limit'] = $request['length'];
+        if(isset($request['start'])) $request['offset'] = $request['start'];
+        $this->view = '';
+        $this->model = new PhoneModel($this->assist->cfg);
+        $data = $this->model->select($request);
+        $data['recordsTotal'] = $data['total']; 
+        $data['recordsFiltered'] = $data['recordsTotal'];
+        $data['length'] = $data['limit'];
+        $data['start'] = $data['offset'];
+        return json_encode($data);
     }
 
     public function view($request){
@@ -50,109 +83,16 @@ class Phone
             "item"=> $items['list'][0]
         );
     }
-    
-    public function last(){
-        $config = $this->assist->cfg;
-        $lst = LQL::create($config['db'])->select('*')->from('article', 'a')->orderBy('a.date', 'DESC')->limit(3)->execute();
-        return $lst;
-    }
 
     public function get($request=false, $normal=false){
-        $id = !$request ? '' :  isset($request['id']) ? $request['id'] : $request['param'] ;
-        $limit = !$request ? '' :  isset($request['limit']) ? $request['limit'] : 9;
-        $offset = !$request ? '' :  isset($request['offset']) ? $request['offset'] : 0;
 
-        $config = $this->assist->cfg;
-        $qm = LQL::create($config['db'])
-            ->from('article', 'a')
-            ->orderBy('a.date', 'DESC')
-        ;
-        if(!empty($id)){
-            $qm  = $qm->where("id", $id);
-        }else if($normal){
-            $qm  = $qm->where('a.status', 'normal');
-        }
-        
-        $qm  = $qm->limit($limit)->offset($offset);
-
-        $out = $qm->select('*')->execute();
-        $out = !$out ? array() : $out;
-        $total = LQL::create($config['db'])->select('count(id) as total')->from('article', 'a')->execute();
-
-        return array('total'=>$total[0]['total'], 'list'=>$out, 'limit'=>9, 'offset'=>1);
-    }
-
-    public function relevant(){
-        $config = $this->assist->cfg;
-        $rel = LQL::create($config['db'])->select('*')->from('article', 'a')->where('a.status', 'relevant')->orderBy('a.date', 'DESC')->limit(2)->execute();
-        return $rel;
     }
 
     public function save($request){
-        $id = isset($request['id']) ? $request['id'] : $request['param'] ;
-        $config = $this->assist->cfg;
-        $obj = $request;
-
-        unset($obj['btnSafe'], $obj['art'], $obj['type']);
-        //$obj['description'] = validate($obj, 'description');
-        //$obj['sumary'] = validate($obj, 'sumary');
-        
-        //file_put_contents(__DIR__."/../../save.log", print_r($obj, true));
-    
-        if($obj['id']!='') {
-            $qm = LQL::create($config['db'])
-                ->update('article')
-                ->set( array_keys($obj), array_values($obj))
-                    //['title', 'sumary', 'description', 'date', 'author', 'imgico',  'imgfront',  'url', 'status'], 
-                    //[$obj['title'],$obj['sumary'],$obj['description'],$obj['date'],$obj['imgico'],$obj['imgfront'],$obj['url'],$obj['status'],$obj['status'],]
-                ->where('id', $obj['id'])
-                ->execute();
-            ;
-        }else{
-            $sql = LQL::create($config['db'])
-                ->insert('article')
-                ->into('title', 'sumary', 'description', 'date', 'author', 'imgico',  'imgfront',  'url', 'status')
-                ->values($obj['title'],$obj['sumary'],$obj['description'],$obj['date'],$obj['author'],$obj['imgico'],$obj['imgfront'],$obj['url'],$obj['status'])
-                ->execute()
-            ;
-        }
+       
     }
     
     public function delete($request){
-        $id = isset($request['id']) ? $request['id'] : $request['param'] ;
-        $config = $this->assist->cfg;
 
-        if(!empty($id)) {
-            $qm = LQL::create($config['db'])
-                ->delete('article')
-                ->where('id', $id)
-                ->execute();
-            ;
-        }
-    }
-
-    public function upload(){
-        $path = "resource/article/0/" ;
-        $exte = array("gif", "jpg", "png");
-
-        reset($_FILES);
-        $temp = current($_FILES);
-        $fileName = "";
-
-        if(is_uploaded_file($temp['tmp_name']))
-        {
-            /*if(preg_match("/([^\w\s\d\-_~,;:\[\]\(\).])|([\.]{2,})/", $temp['name'])){
-                header("HTTP/1.1 400 Invalid file name,Bad request");
-                return;
-            }
-            if(!in_array(strtolower(pathinfo($temp['name'], PATHINFO_EXTENSION)), $exte)){
-                header("HTTP/1.1 400 Invalid extension,Bad request");
-                return;
-            }*/
-            
-            $fileName = $path . $temp['name'];
-            $route = $this->assist->route("news") ;
-            move_uploaded_file($temp['tmp_name'],  $route . $fileName);
-        }
     }
 } 

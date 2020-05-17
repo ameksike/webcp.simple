@@ -1,21 +1,21 @@
-
-body .featured-news {
-    width: 153px;
-    background: #34363e;
-    position: absolute;
-    top: 15px;
-    left: -40px;
-    text-align: center;
-    line-height: 35px;
-    letter-spacing: 0.01em;
-    font-size: 0.75em;
-    font-weight: 700;
-    color: #ffffff;
-    text-transform: uppercase;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+input {
+    border: 2px ridge;
+    color: black;
+    margin-left: 2px;
+    margin-right: 3px;
+    margin-top: 1px;
 }
 
-body .portfolio-item{
-    overflow: hidden;
+.dataTables_length{
+    margin-left: 3px;
+}
+
+.dataTables_info {
+    margin-left: 3px;
+}
+
+td img {
+	vertical-align: middle;
+	horizontal-align: middle;
+    width: 95%;
 }

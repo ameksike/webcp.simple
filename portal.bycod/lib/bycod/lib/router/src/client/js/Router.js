@@ -5,7 +5,7 @@ Bycod.router = {
 		return window.location.pathname.substring(0, window.location.pathname.lastIndexOf('index.php') + (index ? 9 : 0));
 	},
 	module: function(module){
-		return this.url() + module;
+		return this.url() + "lib/" + module;
     },
     action: function(module){
 		return this.url(true) + "/" + module;
