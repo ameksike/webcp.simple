@@ -1,13 +1,13 @@
 <table cellpadding="5" cellspacing="0" border="0" width="95%">
         <tr> 
-            <td colspan="5"><h3>TELEFONOS</h3></td>
+            <td colspan="5"><h3><?php echo  $idiom['person']['profile']["phone"]; ?></h3></td>
         </tr>
         <tr>
-            <td><b>Denominación</b></td>
-            <td><b>Número</b></td>
-            <td><b>Extensión</b></td>
-            <td><b>Notas</b></td>
-            <td><b>Tipo</b></td>
+            <td><b><?php echo  $idiom['person']['profile']["denomination"]; ?></b></td>
+            <td><b><?php echo  $idiom['person']['profile']["number"]; ?></b></td>
+            <td><b><?php echo  $idiom['person']['profile']["extension"]; ?></b></td>
+            <td><b><?php echo  $idiom['person']['profile']["note"]; ?></b></td>
+            <td><b><?php echo  $idiom['person']['profile']["type"]; ?></b></td>
         </tr>
         <?php
             

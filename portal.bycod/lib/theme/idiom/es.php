@@ -62,6 +62,32 @@ $idiom['phone']['form']["action"] = "Acciones";
 
 $idiom['person']['admin']['subtitle'] = 'Directorio';
 $idiom['person']['admin']['title'] = 'Personas';
+$idiom['person']['form']["avatar"]="Foto";
+$idiom['person']['form']["firstname"]="Nombre";
+$idiom['person']['form']["lastname"]="Apellidos";
+$idiom['person']['form']["alias"]="Alias";
+$idiom['person']['form']["sex"]="Sexo";
+$idiom['person']['form']["user"]="Usuario";
+$idiom['person']['form']["domain"]="Dominio";
+$idiom['person']['form']["company"]="Empresa";
+$idiom['person']['form']["place"]="Departamento";
+$idiom['person']['form']["position"]="Cargo";
+$idiom['person']['form']["category"]="Categor&iacute;a";
+$idiom['person']['form']["action"]="Acciones";
+$idiom['person']['form']["email"]="Correo";
+$idiom['person']['form']["chat"]="Chat";
+$idiom['person']['profile']["title"]="PERFIL";
+$idiom['person']['profile']["phone"]="TELEFONOS";
+$idiom['person']['profile']["denomination"]="Denominación";
+$idiom['person']['profile']["value"]="Valor";
+$idiom['person']['profile']["number"] = "Número";
+$idiom['person']['profile']["extension"] = "Extensión";
+$idiom['person']['profile']["note"] = "Notas";
+$idiom['person']['profile']["type"] = "Tipo";
+$idiom['person']['profile']["description"] = "Descripción";
+$idiom['person']['profile']["trails"] = "OTROS DATOS";
+
+
 
 $idiom['portfolio']['admin']['subtitle'] = 'Articulos';
 $idiom['portfolio']['admin']['title'] = 'Portfolio';
