@@ -40,9 +40,17 @@ class PersonModel
         $out = $qm->execute();
 
         $out = !$out ? array() : $out;
-        return array("data"=> $out, "total"=>$total[0]['total'], 'limit'=>$limit, 'offset'=>$offset );
+        return array("data"=> $out, "total"=>$this->total(), 'limit'=>$limit, 'offset'=>$offset );
     }
 
+    public function total(){
+        $total = LQL::create()
+            ->select('count(id) as total')
+            ->from('person', 'p')
+            ->where($this->config['company']['field'], $this->config['company']['role'])
+            ->execute();
+        return $total[0]['total'];
+    }
     public function get($request){
         $id = isset($request['id']) ? $request['id'] : $request['param'] ;
         
