@@ -1,4 +1,5 @@
 
+<?php $idiom = $assist->view->idiom("theme"); ?>
 <form role="form" class="myform">
     <div class="col-md-6 col-sm-12">
         <div class="form-group">
