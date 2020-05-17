@@ -5,3 +5,5 @@ svn
 *.o
 *~
 resource/
+portal/server/log/
+portal.bycod/log/
