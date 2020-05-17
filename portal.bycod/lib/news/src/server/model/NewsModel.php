@@ -94,6 +94,7 @@ class NewsModel
 
     public function  empty(){
         return [
+            'id'=> '',
             'title'=> '',
             'date'=> '',
             'author'=>'',

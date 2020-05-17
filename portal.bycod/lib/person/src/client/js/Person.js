@@ -94,8 +94,8 @@ $(document).ready(function() {
                 var objp = row.data();
                 $.ajax({
                     type: "POST",
-                    url: "save",
-                    data: "id="+objp.id,
+                    url: Bycod.router.action("person/meta/" + objp.id),
+                    //data: "id="+objp.id,
                     success: function(msg){
                         var obj = JSON.parse(msg);
                         row.child( format(obj, objp) ).show();

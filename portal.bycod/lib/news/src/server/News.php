@@ -32,9 +32,9 @@ class News
         );
     }
 
-    public function delete(){
+    public function delete($request){
         $this->model = new NewsModel($this->assist->cfg);
-       
+        $this->model->delete($request);
         return $this->backend();
     }
 
@@ -97,12 +97,22 @@ class News
             "active"=>"portfolio",
             "page_title_ico"=>  "fas fa-newspaper",
             "page_head"=> $this->assist->view->include(array(
+                "theme/lib/dataTables/1.10.16/css/jquery.dataTables.min.css",
                 "news/src/client/css/News.css",
             )),
             "page_footer"=> $this->assist->view->include(array(
                 "theme/idiom/es.js",
                 "theme/src/client/js/utils.js",
-                "theme/lib/dataTables/1.10.20/js/jquery.dataTables.min.js",
+                "theme/lib/jquery/1.9.1/jquery.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.core.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.widget.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.mouse.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.draggable.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.position.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.resizable.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.button.js",
+                "theme/lib/jquery/1.10.3/ui/jquery.ui.dialog.js",
+                "theme/lib/dataTables/1.10.16/js/jquery.dataTables.min.js" ,
                 "theme/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",
                 "news/src/client/js/News.js",
             )),
@@ -116,9 +126,10 @@ class News
         $this->view = 'theme:debug/news.view';        
         $this->model = new NewsModel($this->assist->cfg);
         $items = $this->model->get($request);
+
         return array(
             "active"=>"news",
-            "item"=> $items['data'][0]
+            "item"=> isset($items['data'][0]) ? $items['data'][0] : $this->model->empty()
         );
     }
     

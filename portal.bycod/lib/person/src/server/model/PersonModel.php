@@ -13,6 +13,7 @@
     class PersonModel
     {
         public $config;
+
         public function __construct($cfg){
             $this->config = $cfg;
         }
@@ -93,4 +94,37 @@
             return $out;
         }
 
+        public function meta($request){
+            $out = [];
+            if(isset($request['id'])){
+                $id = $request['id'];
+                $out["person"] = LQL::create($this->config['db'])
+                    ->select('*')
+                    ->from('person', 'p')
+                    ->where('id', $id)
+                    ->andWhere($this->config['company']['field'], $this->config['company']['role'])
+                    ->query()
+                ;
+                $out["trait"] = LQL::create($this->config['db'])
+                    ->select("*")
+                    ->from('trait', 't')
+                    ->innerJoin("traituser tu", ' tu.trait', "t.id")
+                    ->innerJoin("person p", ' tu.owner', "p.id")
+                    ->where("p.id", $id)
+                    ->andWhere($this->config['company']['field'], $this->config['company']['role'])
+                    ->query()
+                ;
+                $out["phonebook"] = LQL::create($this->config['db'])
+                    ->select("*")
+                    ->from('phonebook', 'g')
+                    ->innerJoin("phoneuser pu", ' pu.phone', "g.id")
+                    ->innerJoin("person p", ' pu.user', "p.id")
+                    ->where("p.id", $id)
+                    ->andWhere($this->config['company']['field'], $this->config['company']['role'])
+                    ->query()
+                ;
+            }
+            $out = !is_array($out) ? array() : $out;
+            return  $out;
+        }
 	} 

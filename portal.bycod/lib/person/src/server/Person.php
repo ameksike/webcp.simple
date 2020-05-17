@@ -30,12 +30,23 @@
                 "page_title"=> $idiom['person']['admin']['title'],
                 "page_subtitle"=> $idiom['person']['admin']['subtitle'] . ' / ' .  $idiom['person']['admin']['title'],
                 "page_head"=> $this->assist->view->include(array(
+                    "theme/lib/dataTables/1.10.16/css/jquery.dataTables.min.css",
                     "person/src/client/css/Person.css",
                 )),
                 "page_footer"=> $this->assist->view->include(array(
+
                     "theme/idiom/es.js",
                     "theme/src/client/js/utils.js",
-                    "theme/lib/dataTables/1.10.20/js/jquery.dataTables.min.js",
+                    "theme/lib/jquery/1.9.1/jquery.js",
+                    "theme/lib/jquery/1.10.3/ui/jquery.ui.core.js",
+                    "theme/lib/jquery/1.10.3/ui/jquery.ui.widget.js",
+                    "theme/lib/jquery/1.10.3/ui/jquery.ui.mouse.js",
+                    "theme/lib/jquery/1.10.3/ui/jquery.ui.draggable.js",
+                    "theme/lib/jquery/1.10.3/ui/jquery.ui.position.js",
+                    "theme/lib/jquery/1.10.3/ui/jquery.ui.resizable.js",
+                    "theme/lib/jquery/1.10.3/ui/jquery.ui.button.js",
+                    "theme/lib/jquery/1.10.3/ui/jquery.ui.dialog.js",
+                    "theme/lib/dataTables/1.10.16/js/jquery.dataTables.min.js" ,
                     "theme/lib/dataTables/1.10.20/js/dataTables.bootstrap4.min.js",
                     "person/src/client/js/Person.js",
                 )),
@@ -53,6 +64,27 @@
             return json_encode($out);
         }
 
+        public function meta($request){
+            $request['id'] = isset($request['id']) ? $request['id'] : $request['param'];
+            
+            $this->model = new PersonModel($this->assist->cfg);
+            $out = $this->model->meta($request);
+
+            if(isset($out["person"])){
+                $out["person"][0]['avatar'] = "data/user/". strtolower($out["person"][0]['company'])."/". strtolower($out["person"][0]['user']) . ".jpg";
+                if(!file_exists(__DIR__ . "/../"  . $out["person"][0]['avatar']))
+                    $out["person"][0]['avatar'] = "data/user/user_".$out["person"][0]['sex'].".svg";
+    
+                $out["person"][0]['company'] =  $out["person"][0]['company'] == 'Other' ? "" : $out["person"][0]['company'];
+                $out["person"][0]['domain']  =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['domain'] ;
+                $out["person"][0]['email']   =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['user'] . "@" . $out["person"][0]['domain'] ;
+                $out["person"][0]['chat']    =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['user'] . "@jabber." . $out["person"][0]['domain'] ;
+                $out["person"][0]['place']   =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['place'] ;
+                $out["person"][0]['user']    =  ($out["person"][0]['company'] === "") ? "" : $out["person"][0]['user'] ;
+
+            }
+            return json_encode($out, true) ;
+        }
         private function formatList($data){
             $out = $data['data'];
             $url = $this->assist->router->url(".");  
