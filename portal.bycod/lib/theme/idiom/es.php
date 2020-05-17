@@ -87,8 +87,6 @@ $idiom['person']['profile']["type"] = "Tipo";
 $idiom['person']['profile']["description"] = "Descripción";
 $idiom['person']['profile']["trails"] = "OTROS DATOS";
 
-
-
 $idiom['portfolio']['admin']['subtitle'] = 'Articulos';
 $idiom['portfolio']['admin']['title'] = 'Portfolio';
 
