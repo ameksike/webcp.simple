@@ -4,6 +4,6 @@
 svn
 *.o
 *~
-resource/
-portal/server/log/
-portal.bycod/log/
+resource/*
+portal/server/log/*
+portal.bycod/log/*
