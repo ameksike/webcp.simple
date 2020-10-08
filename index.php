@@ -11,4 +11,6 @@
  * @require: PHP >= 5.2.*
  *
  */
+
+file_put_contents("php://stderr", "INIT WEB CLIENT!");
 include "mod.home.php";
