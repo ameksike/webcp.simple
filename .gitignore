@@ -8,3 +8,4 @@ portal/resource/*
 portal/log/*
 portal/server/log/*
 portal.bycod/log/*
+/vendor/

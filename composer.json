@@ -1,10 +1,16 @@
 {
+    "name": "webcp.simple",
+    "description": "Web Coporative Portal",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Antonio Membrides Espinosa",
+            "email": "tonykssa@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=5.3.0",
-        "chh/cache-service-provider": "~1.0",
-        "ext-libevent": "*",
-        "ext-curl": "*",
-        "ext-sundown": "*"
+        "ext-curl": "*"
     },
     "extra": {
         "heroku": {
@@ -16,7 +22,7 @@
                 "newrelic.appname=php-test"
             ],
             "engines": {
-                "php": "5.5.*",
+                "php": "5.3.*",
                 "nginx": "1.4.*"
             },
             "compile": [
